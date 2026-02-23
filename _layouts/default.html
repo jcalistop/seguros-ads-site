@@ -1,14 +1,499 @@
 <!doctype html>
-<html lang="es">
-  {% include head.html %}
-  <body>
-    <a href="#main" class="skip-link">Saltar al contenido</a>
-    {% include header.html %}
+<html lang="{{ site.lang | default: 'es' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{
+      site.title }}{% endif %}
+    </title>
 
-    <main class="main-content">
-      <div id="main">{{ content }}</div>
-    </main>
+    {% seo %}
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="{{ '/assets/images/logo.svg' | relative_url }}"
+    />
 
-    {% include footer.html %}
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: "#1a56db",
+                50: "#eff6ff",
+                100: "#dbeafe",
+                600: "#1a56db",
+                700: "#1d4ed8",
+                800: "#1e40af",
+                900: "#1e3a8a",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Tabler Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .hero-bg {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .carousel-item {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.7s ease-in-out;
+      }
+      .carousel-item.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .dropdown:hover .dropdown-menu,
+      .dropdown:focus-within .dropdown-menu {
+        display: block;
+      }
+      #mobile-menu {
+        transition: transform 0.3s ease;
+      }
+    </style>
+
+    {% if page.extra_css %}
+    <link rel="stylesheet" href="{{ page.extra_css | relative_url }}" />
+    {% endif %}
+  </head>
+  <body class="font-sans text-gray-800 bg-white flex flex-col min-h-screen">
+    <!-- ============================================================ NAVBAR -->
+    <header
+      class="bg-primary-800 text-white shadow-lg sticky top-0 z-50"
+      style="background-color: #1e40af"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo + Nombre -->
+          <a
+            href="{{ '/' | relative_url }}"
+            class="flex items-center gap-3 flex-shrink-0"
+          >
+            <img
+              src="{{ '/assets/images/logo.svg' | relative_url }}"
+              alt="ADS Corredores de Seguros"
+              class="h-10 w-auto"
+              onerror="this.style.display = 'none'"
+            />
+            <span class="font-semibold text-lg leading-tight hidden sm:block">
+              ADS Corredores de Seguros
+            </span>
+          </a>
+
+          <!-- Menú Desktop -->
+          <nav class="hidden lg:flex items-center gap-1">
+            <a
+              href="{{ '/' | relative_url }}"
+              class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition {% if page.url == '/' %}bg-blue-700{% endif %}"
+            >
+              Inicio
+            </a>
+            <a
+              href="{{ '/nosotros' | relative_url }}"
+              class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition {% if page.url contains '/nosotros' %}bg-blue-700{% endif %}"
+            >
+              Nosotros
+            </a>
+
+            <!-- Dropdown Seguros -->
+            <div class="relative dropdown">
+              <button
+                class="flex items-center gap-1 px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition {% if page.url contains '/seguros' %}bg-blue-700{% endif %}"
+              >
+                <i class="ti ti-shield-lock-filled mr-1"></i>Seguros
+                <i class="ti ti-chevron-down text-xs ml-1"></i>
+              </button>
+              <div
+                class="dropdown-menu absolute left-0 mt-1 w-60 bg-white rounded-lg shadow-xl py-1 hidden z-50"
+              >
+                {% for cat in site.data.insurance_categories %}
+                <a
+                  href="{{ cat.slug | prepend: '/' | relative_url }}"
+                  class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition"
+                >
+                  <i class="{{ cat.icon }}"></i>{{ cat.name }}
+                </a>
+                {% endfor %}
+              </div>
+            </div>
+
+            <a
+              href="{{ '/pagar' | relative_url }}"
+              class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition {% if page.url contains '/pagar' %}bg-blue-700{% endif %}"
+            >
+              <i class="ti ti-credit-card-filled mr-1"></i>Paga aquí
+            </a>
+            <a
+              href="{{ '/contacto' | relative_url }}"
+              class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition {% if page.url contains '/contacto' %}bg-blue-700{% endif %}"
+            >
+              Contacto
+            </a>
+          </nav>
+
+          <!-- WhatsApp Desktop -->
+          <a
+            href="{{ site.data.social.whatsapp.url }}"
+            target="_blank"
+            rel="noopener"
+            class="hidden lg:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-3 py-2 rounded transition"
+          >
+            <i class="ti ti-brand-whatsapp"></i>
+            <span>{{ site.data.social.whatsapp.display }}</span>
+          </a>
+
+          <!-- Botón hamburguesa móvil -->
+          <button
+            id="mobile-toggle"
+            aria-label="Abrir menú"
+            class="lg:hidden p-2 rounded hover:bg-blue-700 transition"
+          >
+            <i class="ti ti-menu-2 text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================ MENÚ MÓVIL -->
+    <div
+      id="mobile-overlay"
+      class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
+      onclick="closeMobileMenu()"
+    ></div>
+
+    <aside
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-72 text-white z-50 transform -translate-x-full lg:hidden overflow-y-auto"
+      style="background-color: #1e3a8a"
+    >
+      <div
+        class="flex items-center justify-between p-4 border-b border-blue-800"
+      >
+        <span class="font-semibold">ADS Corredores</span>
+        <button onclick="closeMobileMenu()" aria-label="Cerrar menú">
+          <i class="ti ti-x text-xl"></i>
+        </button>
+      </div>
+      <nav class="p-4 space-y-1">
+        <a
+          href="{{ '/' | relative_url }}"
+          class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition"
+        >
+          <i class="ti ti-home"></i> Inicio
+        </a>
+        <a
+          href="{{ '/nosotros' | relative_url }}"
+          class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition"
+        >
+          <i class="ti ti-star-filled"></i> Nosotros
+        </a>
+        <!-- Seguros colapsable -->
+        <div>
+          <button
+            onclick="toggleSegurosMenu()"
+            class="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-blue-800 transition"
+          >
+            <span class="flex items-center gap-2"
+              ><i class="ti ti-shield-lock-filled"></i> Seguros</span
+            >
+            <i
+              id="seguros-chevron"
+              class="ti ti-chevron-down text-xs transition-transform"
+            ></i>
+          </button>
+          <div id="seguros-submenu" class="hidden pl-4 space-y-1 mt-1">
+            {% for cat in site.data.insurance_categories %}
+            <a
+              href="{{ cat.slug | prepend: '/' | relative_url }}"
+              class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition text-sm"
+            >
+              <i class="{{ cat.icon }}"></i> {{ cat.name }}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        <a
+          href="{{ '/pagar' | relative_url }}"
+          class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition"
+        >
+          <i class="ti ti-credit-card-filled"></i> Paga aquí
+        </a>
+        <a
+          href="{{ '/contacto' | relative_url }}"
+          class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition"
+        >
+          <i class="ti ti-mail"></i> Contacto
+        </a>
+        <div class="pt-3 border-t border-blue-800">
+          <a
+            href="{{ site.data.social.whatsapp.url }}"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-2 px-3 py-2 rounded bg-green-500 hover:bg-green-600 transition text-sm"
+          >
+            <i class="ti ti-brand-whatsapp"></i> {{
+            site.data.social.whatsapp.display }}
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ============================================================ CONTENIDO PRINCIPAL -->
+    <main class="flex-1">{{ content }}</main>
+
+    <!-- ============================================================ FOOTER -->
+    <footer class="text-gray-300 mt-auto" style="background-color: #111827">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <!-- Columna 1: Logo y descripción -->
+          <div class="col-span-2 lg:col-span-1">
+            <img
+              src="{{ '/assets/images/logo.svg' | relative_url }}"
+              alt="ADS Corredores de Seguros"
+              class="h-12 mb-3"
+              onerror="this.style.display = 'none'"
+            />
+            <p class="text-sm leading-relaxed mb-4">
+              Protegemos a nuestros clientes de los riesgos en la vida de las
+              personas y las empresas. Usamos la tecnología para entregar el
+              mejor servicio al precio más conveniente del mercado.
+            </p>
+            <img
+              src="{{ '/assets/images/logos/regulados-por-asociados-a.png' | relative_url }}"
+              alt="Regulados por / Asociados a"
+              class="max-h-14 opacity-80"
+              onerror="this.style.display = 'none'"
+            />
+          </div>
+
+          <!-- Columna 2: Menú -->
+          <div>
+            <h5 class="text-white font-semibold mb-3">Menú</h5>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="{{ '/' | relative_url }}"
+                  class="hover:text-white transition"
+                  >Inicio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ '/nosotros' | relative_url }}"
+                  class="hover:text-white transition"
+                  >Nosotros</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ '/seguros-para-personas' | relative_url }}"
+                  class="hover:text-white transition"
+                  >Seguros</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition">Siniestros</a>
+              </li>
+              <li>
+                <a
+                  href="{{ '/pagar' | relative_url }}"
+                  class="hover:text-white transition"
+                  >Paga aquí</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ '/contacto' | relative_url }}"
+                  class="hover:text-white transition"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Columna 3: Seguros -->
+          <div>
+            <h5 class="text-white font-semibold mb-3">Seguros</h5>
+            <ul class="space-y-2 text-sm">
+              {% for cat in site.data.insurance_categories %}
+              <li>
+                <a
+                  href="{{ cat.slug | prepend: '/' | relative_url }}"
+                  class="hover:text-white transition"
+                  >{{ cat.name }}</a
+                >
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Columna 4: Plataformas -->
+          <div>
+            <h5 class="text-white font-semibold mb-3">Plataformas</h5>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="/admin"
+                  class="hover:text-white transition"
+                  target="_blank"
+                  rel="noopener"
+                  >Frontoffice</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://backoffice.segurosads.cl/admin"
+                  class="hover:text-white transition"
+                  target="_blank"
+                  rel="noopener"
+                  >Backoffice</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition">Academia ADS</a>
+              </li>
+              <li><a href="#" class="hover:text-white transition">CRM</a></li>
+              <li>
+                <a href="#" class="hover:text-white transition">Matrix ANS</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Columna 5: Blog -->
+          <div>
+            <h5 class="text-white font-semibold mb-3">Blog</h5>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >¿Qué es una corredora?</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >¿Tiene costo la asesoría?</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >¿Por qué un seguro?</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >¿Quién regula los seguros?</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Atento a las estafas!</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Redes sociales + copyright -->
+        <div
+          class="border-t border-gray-700 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <div class="flex items-center gap-5">
+            <a
+              href="{{ site.data.social.whatsapp.url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+              class="text-gray-400 hover:text-green-400 transition text-2xl"
+            >
+              <i class="ti ti-brand-whatsapp"></i>
+            </a>
+            <a
+              href="{{ site.data.social.instagram.url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              class="text-gray-400 hover:text-pink-400 transition text-2xl"
+            >
+              <i class="ti ti-brand-instagram"></i>
+            </a>
+            <a
+              href="{{ site.data.social.facebook.url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              class="text-gray-400 hover:text-blue-400 transition text-2xl"
+            >
+              <i class="ti ti-brand-facebook"></i>
+            </a>
+          </div>
+          <div class="text-sm text-center text-gray-500">
+            <p>
+              Derechos reservados ® ADS Corredores de Seguros &nbsp;|&nbsp;
+              Hecho en 🇨🇱 con ❤️
+            </p>
+            <p class="mt-1">
+              © {{ 'now' | date: "%Y" }} Todos los derechos reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================================ SCRIPTS -->
+    <script>
+      // Menú móvil
+      document
+        .getElementById("mobile-toggle")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.style.transform = "translateX(0)";
+          document.getElementById("mobile-overlay").classList.remove("hidden");
+        });
+      function closeMobileMenu() {
+        document.getElementById("mobile-menu").style.transform =
+          "translateX(-100%)";
+        document.getElementById("mobile-overlay").classList.add("hidden");
+      }
+      // Submenú de seguros en móvil
+      function toggleSegurosMenu() {
+        const sub = document.getElementById("seguros-submenu");
+        const chev = document.getElementById("seguros-chevron");
+        sub.classList.toggle("hidden");
+        chev.style.transform = sub.classList.contains("hidden")
+          ? ""
+          : "rotate(180deg)";
+      }
+    </script>
+
+    {% if page.extra_js %}
+    <script src="{{ page.extra_js | relative_url }}"></script>
+    {% endif %}
   </body>
 </html>

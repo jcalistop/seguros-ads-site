@@ -1,0 +1,170 @@
+# Compañías de seguros - extraído de CompaniesTableSeeder.php
+# Fuente: jcalistop/site.segurosads
+
+- id: 2
+  rut: "99231000-6"
+  name: "HDI SEGUROS S.A."
+  short: "HDI"
+  logo: "/assets/images/logos/hdi.png"
+  type: "GENERALES"
+  paid_link: "https://pago.hdi.cl/pagosenlinea/"
+
+- id: 3
+  rut: "94510000-1"
+  name: "RENTA NACIONAL CIA DE SEGUROS GENERALES S A"
+  short: "RENTA"
+  logo: "/assets/images/logos/renta.png"
+  type: "GENERALES"
+  paid_link: "https://seguros.rentanacional.cl/pago-en-linea/"
+
+- id: 4
+  rut: "99037000-1"
+  name: "ZURICH SEGUROS GENERALES S.A."
+  short: "ZURICH GENERALES"
+  logo: "/assets/images/logos/zurich.png"
+  type: "GENERALES"
+  paid_link: "https://www9.zurich.cl/vida/web/Portal/pagoexpress/"
+
+- id: 5
+  rut: "99588060-1"
+  name: "CHUBB SEGUROS DE VIDA CHILE S.A"
+  short: "CHUBB VIDA"
+  logo: "/assets/images/logos/chubb.png"
+  type: "VIDA"
+  paid_link:
+
+- id: 6
+  rut: "96508210-7"
+  name: "MAPFRE COMPANIA DE SEGUROS GENERALES DE CHILE S A"
+  short: "MAPFRE GRALES"
+  logo: "/assets/images/logos/mapfre.png"
+  type: "GENERALES"
+  paid_link: "https://aplicacion.mapfre.cl/pagoenlinea/web"
+
+- id: 7
+  rut: "96933030-K"
+  name: "MAPFRE SEGUROS DE VIDA"
+  short: "MAPFRE VIDA"
+  logo: "/assets/images/logos/mapfre.png"
+  type: "VIDA"
+  paid_link:
+
+- id: 8
+  rut: "99225000-3"
+  name: "CHUBB SEGUROS CHILE S.A."
+  short: "CHUBB GRALES"
+  logo: "/assets/images/logos/chubb.png"
+  type: "GENERALES"
+  paid_link: "https://botonpagochile.chubb.com/"
+
+- id: 9
+  rut: "99147000-K"
+  name: "BCI SEGUROS GENERALES S A"
+  short: "BCI GRALES"
+  logo: "/assets/images/logos/bci.png"
+  type: "GENERALES"
+  paid_link: "https://portalpago.bciseguros.cl/"
+
+- id: 10
+  rut: "96654180-6"
+  name: "CIA DE SEGUROS GENERALES CONSORCIO NACIONAL DE SEGUROS S A"
+  short: "CONSORCIO GRALES"
+  logo: "/assets/images/logos/consorcio.png"
+  type: "GENERALES"
+  paid_link: "https://www.consorcio.cl/pago/pago-express"
+
+- id: 11
+  rut: "99061000-2"
+  name: "LIBERTY COMPANIA DE SEGUROS GENERALES S A"
+  short: "LIBERTY GRALES"
+  logo: "/assets/images/logos/liberty.png"
+  type: "GENERALES"
+  paid_link: "https://www.liberty.cl/pago-en-linea/pagar-mi-cuota"
+
+- id: 12
+  rut: "99017000-2"
+  name: "SEGUROS GENERALES SURAMERICANA S.A."
+  short: "SURA GRALES"
+  logo: "/assets/images/logos/sura.png"
+  type: "GENERALES"
+  paid_link: "https://seguros.sura.cl/pagar"
+
+- id: 13
+  rut: "96585690-0"
+  name: "SUR ASISTENCIA S A"
+  short: "SUR ASISTENCIA (MAPFRE)"
+  logo: "/assets/images/logos/sura.png"
+  type: "ASISTENCIA"
+  paid_link:
+
+- id: 14
+  rut: "77096952-2"
+  name: "FID CHILE SEGUROS GENERALES S.A."
+  short: "FID GRALES"
+  logo: "/assets/images/logos/fid.png"
+  type: "GENERALES"
+  paid_link: "https://portal.fidseguros.cl/FidPay_pago_UI/OnlinePayment.aspx"
+
+- id: 15
+  rut: "99288000-7"
+  name: "SOUTHBRIDGE COMPAÑIA DE SEGUROS GENERALES"
+  short: "SOUTHBRIDGE GRALES"
+  logo: "/assets/images/logos/southbrigde.png"
+  type: "GENERALES"
+  paid_link:
+
+- id: 16
+  rut: "96573590-9"
+  name: "COMPAÑIA DE SEGUROS DE CREDITO CONTINENTAL S.A."
+  short: "CONTINENTAL CREDITO"
+  logo:
+  type: "GARANTIA Y CREDITO"
+  paid_link:
+
+- id: 17
+  rut: "96831690-7"
+  name: "COMPAÑIA DE SEGUROS DE CREDITOS COFACE CHILE S.A."
+  short: "COFACE"
+  logo:
+  type: "GARANTIA Y CREDITO"
+  paid_link:
+
+- id: 18
+  rut: "76079624-7"
+  name: "HDI SEGUROS DE GARANTIA Y CREDITO S.A."
+  short: "HDI GARANTIA Y CREDITO"
+  logo: "/assets/images/logos/hdi.png"
+  type: "GARANTIA Y CREDITO"
+  paid_link:
+
+- id: 19
+  rut: "76844788-8"
+  name: "SEGUROS KONSEGUR DE GARANTIAS Y CREDITO S.A"
+  short: "KONSEGUR"
+  logo:
+  type: "GARANTIA Y CREDITO"
+  paid_link:
+
+- id: 20
+  rut: "96923610-9"
+  name: "ADMINISTRADORA NACIONAL DE SERVICIOS SA"
+  short: "ANS"
+  logo: "/assets/images/logos/ans.png"
+  type: "OTRO"
+  paid_link:
+
+- id: 21
+  rut: "99012000-5"
+  name: "CIA DE SEGUROS DE VIDA CONSORCIO NACIONAL DE SEGUROS S A"
+  short: "CONSORCIO VIDA"
+  logo: "/assets/images/logos/consorcio.png"
+  type: "VIDA"
+  paid_link:
+
+- id: 22
+  rut: "96573600-K"
+  name: "BCI SEGUROS DE VIDA S.A"
+  short: "BCI VIDA"
+  logo: "/assets/images/logos/consorcio.png"
+  type: "VIDA"
+  paid_link:

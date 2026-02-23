@@ -1,0 +1,42 @@
+# Categorías de seguros - extraído de InsuranceCategoriesTableSeeder.php
+# Fuente: jcalistop/site.segurosads
+
+- id: 1
+  name: "Seguros para personas"
+  slug: "seguros-para-personas"
+  route: "personas"
+  icon: "ti ti-friends"
+  description: "Encuentra protección para ti, tu familia o tu patrimonio. Protege a los que más te importan con nuestra diversidad de seguros al mejor precio."
+  image: "/assets/images/personas.jpg"
+
+- id: 2
+  name: "Seguros para empresas"
+  slug: "seguros-para-empresas"
+  route: "empresas"
+  icon: "ti ti-building-store"
+  description: "Protege tu inversión y accede a los seguros más convenientes del mercado. Protegemos a ti y a tus trabajadores en el giro de tu negocio."
+  image: "/assets/images/empresas.jpg"
+
+- id: 3
+  name: "Seguros para comunidades"
+  slug: "seguros-para-comunidades"
+  route: "comunidades"
+  icon: "ti ti-building-community"
+  description: "Aseguramos los espacios comunes y protegemos la administración de la comunidad por medio de los seguros de responsabilidad civil."
+  image: "/assets/images/condominios.jpg"
+
+- id: 4
+  name: "Seguros de vida y ahorro"
+  slug: "seguros-vida-ahorro"
+  route: "vida"
+  icon: "ti ti-heart-dollar"
+  description: "Protege a tu familia con un seguro de vida y construye un ahorro para el futuro. Cobertura completa para lo más importante."
+  image: "/assets/images/personas.jpg"
+
+- id: 5
+  name: "Seguros de viajes y asistencia"
+  slug: "seguros-viajes-asistencia"
+  route: "viajes"
+  icon: "ti ti-plane-departure"
+  description: "Viaja tranquilo con la mejor cobertura de asistencia en viajes. Protección médica y de equipaje para que disfrutes sin preocupaciones."
+  image: "/assets/images/personas.jpg"

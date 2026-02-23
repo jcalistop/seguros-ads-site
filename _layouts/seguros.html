@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'es' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  {% seo %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/logo.svg' | relative_url }}" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#1a56db',
+              600: '#1a56db',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    .hero-bg { background-size: cover; background-position: center; background-repeat: no-repeat; }
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu { display: block; }
+    #mobile-menu { transition: transform 0.3s ease; }
+    .insurance-card { display: block; }
+    .insurance-card.hidden-card { display: none; }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white flex flex-col min-h-screen">
+
+  <!-- NAVBAR (igual que default.html) -->
+  <header class="text-white shadow-lg sticky top-0 z-50" style="background-color:#1e40af;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="{{ '/' | relative_url }}" class="flex items-center gap-3 flex-shrink-0">
+          <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="ADS Corredores de Seguros"
+               class="h-10 w-auto" onerror="this.style.display='none'">
+          <span class="font-semibold text-lg leading-tight hidden sm:block">ADS Corredores de Seguros</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-1">
+          <a href="{{ '/' | relative_url }}" class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition">Inicio</a>
+          <a href="{{ '/nosotros' | relative_url }}" class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition">Nosotros</a>
+          <div class="relative dropdown">
+            <button class="flex items-center gap-1 px-3 py-2 rounded text-sm font-medium bg-blue-700 transition">
+              <i class="ti ti-shield-lock-filled mr-1"></i>Seguros<i class="ti ti-chevron-down text-xs ml-1"></i>
+            </button>
+            <div class="dropdown-menu absolute left-0 mt-1 w-60 bg-white rounded-lg shadow-xl py-1 hidden z-50">
+              {% for cat in site.data.insurance_categories %}
+              <a href="{{ cat.slug | prepend: '/' | relative_url }}"
+                 class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition {% if page.permalink contains cat.slug %}font-semibold text-blue-700{% endif %}">
+                <i class="{{ cat.icon }}"></i>{{ cat.name }}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+          <a href="{{ '/pagar' | relative_url }}" class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition"><i class="ti ti-credit-card-filled mr-1"></i>Paga aquí</a>
+          <a href="{{ '/contacto' | relative_url }}" class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition">Contacto</a>
+        </nav>
+        <a href="{{ site.data.social.whatsapp.url }}" target="_blank" rel="noopener"
+           class="hidden lg:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-3 py-2 rounded transition">
+          <i class="ti ti-brand-whatsapp"></i><span>{{ site.data.social.whatsapp.display }}</span>
+        </a>
+        <button id="mobile-toggle" aria-label="Abrir menú" class="lg:hidden p-2 rounded hover:bg-blue-700 transition">
+          <i class="ti ti-menu-2 text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden" onclick="closeMobileMenu()"></div>
+  <aside id="mobile-menu" class="fixed top-0 left-0 h-full w-72 text-white z-50 transform -translate-x-full lg:hidden overflow-y-auto" style="background-color:#1e3a8a;">
+    <div class="flex items-center justify-between p-4 border-b border-blue-800">
+      <span class="font-semibold">ADS Corredores</span>
+      <button onclick="closeMobileMenu()"><i class="ti ti-x text-xl"></i></button>
+    </div>
+    <nav class="p-4 space-y-1">
+      <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition"><i class="ti ti-home"></i> Inicio</a>
+      <a href="{{ '/nosotros' | relative_url }}" class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition"><i class="ti ti-star-filled"></i> Nosotros</a>
+      <div>
+        <button onclick="toggleSegurosMenu()" class="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-blue-800 transition">
+          <span class="flex items-center gap-2"><i class="ti ti-shield-lock-filled"></i> Seguros</span>
+          <i id="seguros-chevron" class="ti ti-chevron-down text-xs"></i>
+        </button>
+        <div id="seguros-submenu" class="pl-4 space-y-1 mt-1">
+          {% for cat in site.data.insurance_categories %}
+          <a href="{{ cat.slug | prepend: '/' | relative_url }}"
+             class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition text-sm {% if page.permalink contains cat.slug %}bg-blue-800{% endif %}">
+            <i class="{{ cat.icon }}"></i> {{ cat.name }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <a href="{{ '/pagar' | relative_url }}" class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition"><i class="ti ti-credit-card-filled"></i> Paga aquí</a>
+      <a href="{{ '/contacto' | relative_url }}" class="flex items-center gap-2 px-3 py-2 rounded hover:bg-blue-800 transition"><i class="ti ti-mail"></i> Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- HERO -->
+  <div class="relative w-full flex items-center hero-bg" style="height:260px; background-image:url('{{ "/assets/images/personas.jpg" | relative_url }}');">
+    <div class="absolute inset-0" style="background:rgba(0,0,0,0.55);"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 text-white">
+      <h1 class="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg">Busca tu seguro</h1>
+      <p class="text-lg md:text-xl drop-shadow">Todos los seguros en un solo lugar.</p>
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-1 py-10 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row gap-8">
+
+        <!-- Panel lateral: categorías -->
+        <aside class="md:w-64 flex-shrink-0">
+          <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Categorías de seguros</h3>
+          <nav class="space-y-1">
+            {% for cat in site.data.insurance_categories %}
+            <a href="{{ cat.slug | prepend: '/' | relative_url }}"
+               class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition
+                 {% if page.insurance_category == cat.route %}
+                   bg-blue-600 text-white shadow
+                 {% else %}
+                   text-gray-700 hover:bg-blue-50 hover:text-blue-700
+                 {% endif %}">
+              <i class="{{ cat.icon }}"></i>
+              {{ cat.name }}
+            </a>
+            {% endfor %}
+          </nav>
+
+          <!-- CTA cotización -->
+          <div class="mt-6 p-4 bg-blue-700 text-white rounded-xl">
+            <p class="text-sm font-semibold mb-2">¿No encuentras lo que buscas?</p>
+            <p class="text-blue-100 text-xs mb-3">Contáctanos y te asesoramos sin costo.</p>
+            <a href="{{ site.data.social.whatsapp.url }}" target="_blank" rel="noopener"
+               class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-3 py-2 rounded-lg transition">
+              <i class="ti ti-brand-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </aside>
+
+        <!-- Columna principal -->
+        <div class="flex-1">
+
+          <!-- Buscador -->
+          <div class="mb-6">
+            <div class="relative">
+              <i class="ti ti-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+              <input id="search-input" type="text"
+                     placeholder="Busca tu seguro..."
+                     class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
+            </div>
+            <p id="results-count" class="text-sm text-gray-500 mt-2"></p>
+          </div>
+
+          <!-- Grid de seguros -->
+          <div id="insurance-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {{ content }}
+          </div>
+
+          <!-- Sin resultados -->
+          <div id="no-results" class="hidden text-center py-16 text-gray-400">
+            <i class="ti ti-search-off text-5xl mb-3 block"></i>
+            <p class="text-lg">No se encontraron seguros para "<span id="search-term"></span>"</p>
+            <a href="{{ "/contacto" | relative_url }}" class="mt-4 inline-block text-blue-600 hover:underline">¿Necesitas algo específico? Contáctanos</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER igual que default.html -->
+  <footer class="text-gray-300 mt-auto" style="background-color:#111827;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="col-span-2 md:col-span-1">
+          <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="ADS" class="h-10 mb-3" onerror="this.style.display='none'">
+          <p class="text-sm">Protegemos a nuestros clientes con la mejor tecnología al precio más conveniente.</p>
+        </div>
+        <div>
+          <h5 class="text-white font-semibold mb-3">Menú</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="{{ '/' | relative_url }}" class="hover:text-white transition">Inicio</a></li>
+            <li><a href="{{ '/nosotros' | relative_url }}" class="hover:text-white transition">Nosotros</a></li>
+            <li><a href="{{ '/pagar' | relative_url }}" class="hover:text-white transition">Paga aquí</a></li>
+            <li><a href="{{ '/contacto' | relative_url }}" class="hover:text-white transition">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-semibold mb-3">Seguros</h5>
+          <ul class="space-y-2 text-sm">
+            {% for cat in site.data.insurance_categories %}
+            <li><a href="{{ cat.slug | prepend: '/' | relative_url }}" class="hover:text-white transition">{{ cat.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-semibold mb-3">Contacto</h5>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="{{ site.data.social.whatsapp.url }}" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-green-400 transition">
+                <i class="ti ti-brand-whatsapp"></i>{{ site.data.social.whatsapp.display }}
+              </a>
+            </li>
+            <li>
+              <a href="{{ site.data.social.instagram.url }}" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-pink-400 transition">
+                <i class="ti ti-brand-instagram"></i>{{ site.data.social.instagram.handle }}
+              </a>
+            </li>
+            <li>
+              <a href="{{ site.data.social.facebook.url }}" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-blue-400 transition">
+                <i class="ti ti-brand-facebook"></i>/{{ site.data.social.facebook.handle }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-5 text-center text-sm text-gray-500">
+        Derechos reservados ® ADS Corredores de Seguros &nbsp;|&nbsp; Hecho en 🇨🇱 con ❤️
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Menú móvil
+    document.getElementById('mobile-toggle').addEventListener('click', function () {
+      document.getElementById('mobile-menu').style.transform = 'translateX(0)';
+      document.getElementById('mobile-overlay').classList.remove('hidden');
+    });
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu').style.transform = 'translateX(-100%)';
+      document.getElementById('mobile-overlay').classList.add('hidden');
+    }
+    function toggleSegurosMenu() {
+      const sub = document.getElementById('seguros-submenu');
+      const chev = document.getElementById('seguros-chevron');
+      sub.classList.toggle('hidden');
+      chev.style.transform = sub.classList.contains('hidden') ? '' : 'rotate(180deg)';
+    }
+
+    // Buscador de seguros
+    const searchInput = document.getElementById('search-input');
+    const grid        = document.getElementById('insurance-grid');
+    const noResults   = document.getElementById('no-results');
+    const countEl     = document.getElementById('results-count');
+    const termEl      = document.getElementById('search-term');
+
+    searchInput.addEventListener('input', function () {
+      const q = this.value.trim().toLowerCase();
+      const cards = grid.querySelectorAll('.insurance-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const title = card.dataset.title || '';
+        const matches = q === '' || title.includes(q);
+        card.classList.toggle('hidden-card', !matches);
+        if (matches) visible++;
+      });
+
+      const total = cards.length;
+      if (q === '') {
+        countEl.textContent = total + ' seguros disponibles';
+        noResults.classList.add('hidden');
+      } else if (visible === 0) {
+        countEl.textContent = '';
+        termEl.textContent = q;
+        noResults.classList.remove('hidden');
+      } else {
+        countEl.textContent = visible + ' resultado' + (visible !== 1 ? 's' : '') + ' para "' + q + '"';
+        noResults.classList.add('hidden');
+      }
+    });
+
+    // Inicializar contador
+    const allCards = grid.querySelectorAll('.insurance-card');
+    if (allCards.length > 0) {
+      countEl.textContent = allCards.length + ' seguros disponibles';
+    }
+  </script>
+
+</body>
+</html>

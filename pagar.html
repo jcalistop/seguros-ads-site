@@ -1,0 +1,53 @@
+---
+layout: default
+title: Paga aquí tu seguro
+description: "Portal centralizado de pago de seguros. Accede directamente al portal de pago de tu compañía aseguradora."
+permalink: /pagar
+---
+
+{% include hero.html
+   img="/assets/images/lapiz-tarjeta-credito.jpg"
+   title="Paga aquí tu seguro"
+   subtitle="Centralizamos las páginas de pago de nuestras compañías, accede haciendo clic en su logo." %}
+
+<!-- ===================== GRID DE LOGOS -->
+<section class="py-14 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <p class="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
+      Haz clic en el logo de tu compañía para ir directamente a su portal de pago en línea.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+      {% for company in site.data.companies %}
+      {% if company.type == "GENERALES" and company.paid_link and company.paid_link != "" and company.logo %}
+      <a href="{{ company.paid_link }}" target="_blank" rel="noopener"
+         title="{{ company.name }}"
+         class="flex flex-col items-center justify-center p-5 border border-gray-200 rounded-xl hover:border-blue-400 hover:shadow-md transition group">
+        <img src="{{ company.logo | relative_url }}"
+             alt="{{ company.short }}"
+             class="h-12 object-contain grayscale group-hover:grayscale-0 transition"
+             onerror="this.outerHTML='<span class=\'text-sm font-semibold text-gray-600 text-center\'>{{ company.short }}</span>'">
+        <span class="mt-2 text-xs text-gray-500 text-center group-hover:text-blue-600 transition">
+          {{ company.short }}
+        </span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Nota informativa -->
+    <div class="mt-10 p-5 bg-blue-50 border border-blue-100 rounded-xl flex gap-3">
+      <i class="ti ti-info-circle text-blue-500 text-2xl flex-shrink-0 mt-0.5"></i>
+      <div>
+        <p class="font-semibold text-blue-700">¿No encuentras tu compañía?</p>
+        <p class="text-blue-600 text-sm mt-1">
+          Si tu compañía no aparece en esta lista,
+          <a href="{{ "/contacto" | relative_url }}" class="underline hover:text-blue-800">contáctanos</a>
+          y te ayudamos a gestionar tu pago.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

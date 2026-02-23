@@ -1,37 +1,31 @@
 # Site settings
-title: Mi Sitio Jekyll
-description: Un sitio web profesional construido con Jekyll, optimizado para SEO
-author: Tu Nombre
-email: tu@email.com
-url: "https://tudominio.com"
+title: ADS Corredores de Seguros
+description: >-
+  Más de 40 años protegiendo a personas y empresas.
+  Todos tus seguros por un solo canal. Cotiza, compra y paga en línea.
+author: ADS Corredores de Seguros
+email: jcalisto@segurosads.cl
+url: "https://segurosads.cl"
 baseurl: ""
 lang: es
-timezone: America/Mexico_City
+timezone: America/Santiago
 encoding: utf-8
+
+# Contacto y redes sociales
+phone: "+56 9 7217 7609"
+whatsapp: "56972177609"
+instagram: "ads_corredores"
+facebook: "adscorredores"
+address: "Punta Arenas, Chile"
 
 # Build settings
 markdown: kramdown
-permalink: /:year/:month/:day/:title/
-
-# Sass/SCSS settings
-sass:
-  sass_dir: _sass
-  style: compressed
+permalink: pretty
 
 # Plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-feed
-
-# Defaults para posts
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: post
-      author: "Tu Nombre"
 
 # Exclude from processing
 exclude:
@@ -43,3 +37,4 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - README.md
+  - .github/

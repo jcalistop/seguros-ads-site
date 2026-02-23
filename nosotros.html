@@ -1,0 +1,110 @@
+---
+layout: default
+title: Nosotros
+description: "Conoce a ADS Corredores de Seguros. Más de 40 años de experiencia protegiendo personas y empresas en el sur de Chile."
+permalink: /nosotros
+---
+
+{% include hero.html
+   img="/assets/images/mapa-mundi.jpg"
+   title="Conócenos"
+   subtitle="Lee nuestra historia y conoce de cerca quienes te ayudarán en tu proceso de compra y post-venta." %}
+
+<!-- ===================== ¿QUIÉNES SOMOS? -->
+<section class="py-14 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-blue-700 mb-6">¿Quiénes somos?</h2>
+        <p class="text-gray-700 leading-relaxed text-lg">
+          ADS Corredores de Seguros es una empresa familiar fundada por
+          <strong>José Orlando Calisto Silva</strong>, Corredor de Seguros desde el año 1979.
+          La actual sociedad da continuidad al desarrollo profesional de más de 40 años en el
+          mercado de los seguros de su socio fundador. Actualmente desarrollamos nuestra
+          actividad principalmente en todo el sur de Chile.
+        </p>
+      </div>
+      <div>
+        <img src="{{ "/assets/images/4punos.jpg" | relative_url }}"
+             alt="ADS Corredores de Seguros"
+             class="rounded-xl shadow-lg w-full object-cover"
+             style="max-height:350px;"
+             onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECNOLOGÍA -->
+<section class="py-14 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1">
+        <img src="{{ "/assets/images/backoffice.png" | relative_url }}"
+             alt="Backoffice® ADS"
+             class="rounded-xl shadow-lg w-full"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="order-1 lg:order-2">
+        <h2 class="text-3xl font-bold text-blue-700 mb-6">Tecnología a su servicio</h2>
+        <p class="text-gray-700 leading-relaxed text-lg">
+          El mercado de los seguros ha avanzado en adaptarse a los cambios tecnológicos de la
+          sociedad. Por eso nuestra corredora se ha empecinado en desarrollar, tras bastidores,
+          la mejor tecnología para hacer seguimiento a sus pólizas, endosos y siniestros.
+        </p>
+        <p class="text-gray-700 leading-relaxed text-lg mt-4">
+          <strong>Backoffice®</strong> es un sistema de administración de cartera desarrollado
+          exclusivamente para ADS Corredores de Seguros.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NUESTRO EQUIPO -->
+<section class="py-14 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">Nuestro equipo</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for member in site.data.team %}
+      <div class="bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition p-6 text-center">
+        <img src="{{ member.photo | relative_url }}"
+             alt="{{ member.name }}"
+             class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-blue-100"
+             onerror="this.outerHTML='<div class=\'w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4\'><i class=\'ti ti-user text-4xl text-blue-400\'></i></div>'">
+        <h3 class="font-semibold text-gray-800 text-lg">{{ member.name }}</h3>
+        <p class="text-blue-600 text-sm font-medium mt-1">{{ member.title }}</p>
+        <p class="text-gray-500 text-sm mt-1">{{ member.area }}</p>
+        <a href="mailto:{{ member.email }}"
+           class="mt-3 inline-flex items-center gap-1 text-sm text-gray-400 hover:text-blue-600 transition">
+          <i class="ti ti-mail text-xs"></i>{{ member.email }}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRABAJA CON NOSOTROS -->
+<section class="py-14 bg-blue-700 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="flex-1">
+        <img src="{{ "/assets/images/trabaja_con_nosotros.svg" | relative_url }}"
+             alt="Trabaja con nosotros"
+             class="h-40 mx-auto lg:mx-0"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="flex-1 text-center lg:text-left">
+        <h2 class="text-3xl font-bold mb-4">Trabaja con nosotros</h2>
+        <p class="text-blue-100 text-lg mb-6">
+          Si buscas oportunidades laborales, contáctanos para ver plazas disponibles en nuestra empresa.
+        </p>
+        <a href="{{ "/contacto" | relative_url }}"
+           class="inline-block bg-white text-blue-700 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg transition text-lg">
+          Contáctanos
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

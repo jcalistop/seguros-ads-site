@@ -1,0 +1,26 @@
+{% comment %} Hero reutilizable Uso: {% include hero.html
+img="/assets/images/foto.jpg" title="Título del Hero" subtitle="Subtítulo
+descriptivo" %} {% endcomment %} {% assign hero_img = include.img | default:
+"/assets/images/slide1.jpg" %} {% assign hero_title = include.title | default:
+"ADS Corredores de Seguros" %} {% assign hero_sub = include.subtitle | default:
+"" %}
+
+<div
+  class="relative w-full h-64 md:h-80 lg:h-96 hero-bg flex items-center"
+  style="background-image: url('{{ hero_img | relative_url }}');"
+>
+  <!-- Máscara oscura -->
+  <div
+    class="absolute inset-0"
+    style="background-color: rgba(0, 0, 0, 0.55)"
+  ></div>
+  <!-- Contenido -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 text-white">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 drop-shadow-lg">
+      {{ hero_title }}
+    </h1>
+    {% if hero_sub != "" %}
+    <p class="text-lg md:text-xl max-w-2xl drop-shadow">{{ hero_sub }}</p>
+    {% endif %}
+  </div>
+</div>

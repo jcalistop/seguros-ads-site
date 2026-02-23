@@ -1,0 +1,318 @@
+---
+layout: default
+title: Inicio
+description: "Más de 40 años protegiendo a personas y empresas. Todos tus seguros por un solo canal. Cotiza, compra y paga en línea."
+permalink: /
+---
+
+<!-- ========================================== CARRUSEL HERO -->
+<style>
+  /* Hero background images moved to CSS to avoid inline CSS functions in HTML */
+  #hero-carousel .slide-1 { background-image: url('{{ "/assets/images/slide1.jpg" | relative_url }}'); background-size: cover; background-position: center; }
+  #hero-carousel .slide-2 { background-image: url('{{ "/assets/images/planos.jpg" | relative_url }}'); background-size: cover; background-position: center; }
+  #hero-carousel .slide-3 { background-image: url('{{ "/assets/images/medicamentos.jpg" | relative_url }}'); background-size: cover; background-position: center; }
+  .instagram-gradient { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+</style>
+
+<section id="hero-carousel" class="relative w-full overflow-hidden" style="height:500px;">
+
+  <!-- Slide 1 -->
+  <div class="carousel-item active absolute inset-0 hero-bg flex items-center justify-center slide-1">
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-8 text-white text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Simple y fácil</h1>
+      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Todos los seguros por un solo canal</p>
+      <a href="{{ "/seguros-para-personas" | relative_url }}"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition text-lg">
+        Encuentra el tuyo aquí →
+      </a>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="carousel-item absolute inset-0 hero-bg flex items-center justify-center slide-2">
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-8 text-white text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Pólizas de garantía</h1>
+      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Cotíza fiel cumplimiento y seriedad de la oferta</p>
+      <a href="{{ "/seguros-para-empresas" | relative_url }}"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition text-lg">
+        Obtiénelo aquí →
+      </a>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="carousel-item absolute inset-0 hero-bg flex items-center justify-center slide-3">
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-8 text-white text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Seguro complementario</h1>
+      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Aliviana tus gastos en salud, para cotizantes FONASA e ISAPRE.</p>
+      <a href="{{ "/seguros-para-personas" | relative_url }}"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition text-lg">
+        Cotízalo aquí →
+      </a>
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <button onclick="changeSlide(-1)"
+          class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center transition"
+          aria-label="Anterior">
+    <i class="ti ti-chevron-left text-xl"></i>
+  </button>
+  <button onclick="changeSlide(1)"
+          class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white rounded-full w-10 h-10 flex items-center justify-center transition"
+          aria-label="Siguiente">
+    <i class="ti ti-chevron-right text-xl"></i>
+  </button>
+
+  <!-- Indicadores -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+    <button onclick="goToSlide(0)" class="carousel-dot w-3 h-3 rounded-full bg-white opacity-80" aria-label="Slide 1"></button>
+    <button onclick="goToSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-white opacity-40" aria-label="Slide 2"></button>
+    <button onclick="goToSlide(2)" class="carousel-dot w-3 h-3 rounded-full bg-white opacity-40" aria-label="Slide 3"></button>
+  </div>
+</section>
+
+<!-- ========================================== 4 ICONOS CTA -->
+<section class="py-10 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      <a href="{{ "/seguros-para-personas" | relative_url }}"
+         class="flex flex-col items-center justify-center text-center p-6 rounded-xl hover:bg-blue-50 transition group">
+        <img src="{{ "/assets/images/icons/compra_en_linea.svg" | relative_url }}"
+             alt="Compra en línea" class="h-16 mb-3"
+             onerror="this.outerHTML='<i class=\'ti ti-shopping-cart text-5xl text-blue-600 mb-3\'></i>'">
+        <span class="font-semibold text-gray-700 group-hover:text-blue-700">Compra en línea</span>
+      </a>
+
+      <a href="{{ "/contacto" | relative_url }}"
+         class="flex flex-col items-center justify-center text-center p-6 rounded-xl hover:bg-blue-50 transition group">
+        <img src="{{ "/assets/images/icons/pide_tu_cotizacion.svg" | relative_url }}"
+             alt="Pide tu cotización" class="h-16 mb-3"
+             onerror="this.outerHTML='<i class=\'ti ti-file-invoice text-5xl text-blue-600 mb-3\'></i>'">
+        <span class="font-semibold text-gray-700 group-hover:text-blue-700">Pide tu cotización</span>
+      </a>
+
+      <a href="{{ "/pagar" | relative_url }}"
+         class="flex flex-col items-center justify-center text-center p-6 rounded-xl hover:bg-blue-50 transition group">
+        <img src="{{ "/assets/images/icons/paga_tu_seguro.svg" | relative_url }}"
+             alt="Paga tu seguro" class="h-16 mb-3"
+             onerror="this.outerHTML='<i class=\'ti ti-credit-card text-5xl text-blue-600 mb-3\'></i>'">
+        <span class="font-semibold text-gray-700 group-hover:text-blue-700">Paga tu seguro</span>
+      </a>
+
+      <a href="{{ "/contacto" | relative_url }}"
+         class="flex flex-col items-center justify-center text-center p-6 rounded-xl hover:bg-blue-50 transition group">
+        <img src="{{ "/assets/images/icons/reporta_un_siniestro.svg" | relative_url }}"
+             alt="Reporta un siniestro" class="h-16 mb-3"
+             onerror="this.outerHTML='<i class=\'ti ti-alert-triangle text-5xl text-blue-600 mb-3\'></i>'">
+        <span class="font-semibold text-gray-700 group-hover:text-blue-700">Reporta un siniestro</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================== ¿POR QUÉ ADS? -->
+<section class="py-14 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">¿Por qué ADS Corredores de Seguros?</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+        <img src="{{ "/assets/images/experiencia.jpg" | relative_url }}"
+             alt="Experiencia" class="w-full h-40 object-cover"
+             onerror="this.style.display='none'">
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-semibold text-blue-700 mb-2">Experiencia</h3>
+          <p class="text-gray-600 text-sm mb-4">Llevamos más de 40 años en el mercado de los seguros, con miles de clientes satisfechos.</p>
+          <a href="{{ "/nosotros" | relative_url }}"
+             class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+            Conócenos
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+        <img src="{{ "/assets/images/presencia.jpg" | relative_url }}"
+             alt="Presencia" class="w-full h-40 object-cover"
+             onerror="this.style.display='none'">
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-semibold text-blue-700 mb-2">Presencia</h3>
+          <p class="text-gray-600 text-sm mb-4">Todos nuestros plataformas disponibles en todo el proceso, incluida la gestión de los siniestros.</p>
+          <a href="{{ "/contacto" | relative_url }}"
+             class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+            Contáctanos
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+        <img src="{{ "/assets/images/tecnologia.jpg" | relative_url }}"
+             alt="Tecnología" class="w-full h-40 object-cover"
+             onerror="this.style.display='none'">
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-semibold text-blue-700 mb-2">Tecnología</h3>
+          <p class="text-gray-600 text-sm mb-4">Con los mejores socios estratégicos, usamos la tecnología para ofrecerte los mejores precios.</p>
+          <a href="{{ "/seguros-para-personas" | relative_url }}"
+             class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+            Cotiza aquí
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+        <img src="{{ "/assets/images/asesoria.jpg" | relative_url }}"
+             alt="Asesoría" class="w-full h-40 object-cover"
+             onerror="this.style.display='none'">
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-semibold text-blue-700 mb-2">Asesoría</h3>
+          <p class="text-gray-600 text-sm mb-4">Reunámonos para entregarte una asesoría personalizada y especializada en seguros.</p>
+          <a href="{{ "/contacto" | relative_url }}"
+             class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+            Agenda aquí
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================== CÓMO TRABAJAMOS -->
+<section class="py-14 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">Hacemos el trabajo por ti:</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+      <!-- Timeline -->
+      <div class="space-y-8">
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">1</div>
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-2">Contáctanos por cualquiera de nuestros canales</h3>
+            <div class="flex flex-wrap gap-2">
+              <a href="{{ site.data.social.whatsapp.url }}" target="_blank" rel="noopener"
+                 class="flex items-center gap-1 bg-green-500 hover:bg-green-600 text-white text-sm px-3 py-1.5 rounded-lg transition">
+                <i class="ti ti-brand-whatsapp"></i> WhatsApp
+              </a>
+              <a href="{{ site.data.social.facebook.url }}" target="_blank" rel="noopener"
+                 class="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1.5 rounded-lg transition">
+                <i class="ti ti-brand-facebook"></i> Facebook
+              </a>
+                <a href="{{ site.data.social.instagram.url }}" target="_blank" rel="noopener"
+                  class="flex items-center gap-1 text-white text-sm px-3 py-1.5 rounded-lg transition instagram-gradient">
+                <i class="ti ti-brand-instagram"></i> Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">2</div>
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-3">Cotizamos en las mejores compañías del mercado</h3>
+            <div class="flex flex-wrap gap-3 items-center">
+              {% assign partner_logos = "zurich,hdi,mapfre,fid,renta" | split: "," %}
+              {% for logo in partner_logos %}
+              <img src="{{ '/assets/images/logos/' | append: logo | append: '.png' | relative_url }}"
+                   alt="{{ logo | upcase }}"
+                   class="h-8 object-contain grayscale hover:grayscale-0 transition"
+                   onerror="this.outerHTML='<span class=\'text-xs font-medium text-gray-500 border border-gray-300 px-2 py-1 rounded\'>' + '{{ logo | upcase }}' + '</span>'">
+              {% endfor %}
+            </div>
+            <a href="{{ "/pagar" | relative_url }}"
+               class="mt-3 inline-block text-blue-600 hover:text-blue-800 text-sm font-medium transition">
+              Ver compañías →
+            </a>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">3</div>
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-2">Te asesoramos en elegir la mejor cobertura al precio más conveniente.</h3>
+            <a href="{{ "/contacto" | relative_url }}"
+               class="inline-block text-blue-600 hover:text-blue-800 text-sm font-medium transition">
+              Agenda una reunión →
+            </a>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">4</div>
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-2">Paga en línea y ya estás asegurado...!</h3>
+            <a href="{{ "/pagar" | relative_url }}"
+               class="inline-block text-blue-600 hover:text-blue-800 text-sm font-medium transition">
+              Portal de pagos →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Imagen ilustrativa -->
+      <div class="hidden lg:block">
+        <img src="{{ "/assets/images/4punos.jpg" | relative_url }}"
+             alt="Cómo trabajamos"
+             class="rounded-xl shadow-lg w-full object-cover"
+             style="max-height:380px;"
+             onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================== NAVEGA POR NUESTROS SEGUROS -->
+<section class="py-14 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">Navega por nuestros seguros:</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      {% assign main_cats = site.data.insurance_categories | slice: 0, 3 %}
+      {% for cat in main_cats %}
+      <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition flex flex-col">
+        <img src="{{ cat.image | relative_url }}"
+             alt="{{ cat.name }}"
+             class="w-full h-40 object-cover"
+             onerror="this.style.display='none'">
+        <div class="p-5 flex-1 flex flex-col">
+          <h3 class="text-lg font-bold text-blue-700 mb-2">{{ cat.name }}</h3>
+          <p class="text-gray-600 text-sm flex-1 mb-4">{{ cat.description }}</p>
+          <a href="{{ cat.slug | prepend: '/' | relative_url }}"
+             class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition self-start">
+            <i class="{{ cat.icon }} mr-1"></i>Conócenos
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================== CAROUSEL JS -->
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-item');
+  const dots   = document.querySelectorAll('.carousel-dot');
+
+  function showSlide(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.style.opacity = '0.4');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].style.opacity = '0.9';
+  }
+
+  function changeSlide(dir) { showSlide(currentSlide + dir); }
+  function goToSlide(n)     { showSlide(n); }
+
+  // Auto-avance cada 5 segundos
+  setInterval(() => changeSlide(1), 5000);
+</script>

@@ -1,10 +1,11 @@
+.github/prompts/
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 .bundle/
 vendor/
-Gemfile.lock
 *.gem
 .DS_Store
 node_modules/
+.playwright-mcp/

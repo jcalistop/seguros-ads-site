@@ -1,0 +1,38 @@
+# Equipo ADS Corredores de Seguros
+# Fuente: site/nosotros.blade.php
+
+- name: "José Orlando Calisto Silva"
+  title: "Corredor de Seguros"
+  area: "Gerente General"
+  email: "jcalisto@segurosads.cl"
+  photo: "/assets/images/team/jose_orlando.jpg"
+
+- name: "José Luis Calisto Peñafiel"
+  title: "Corredor de Seguros"
+  area: "Desarrollador de software y community manager"
+  email: "joseluiscalisto@segurosads.cl"
+  photo: "/assets/images/team/jose_luis.jpg"
+
+- name: "Gricelda Hernández Naduam"
+  title: "Jefe de oficina"
+  area: "Punta Arenas"
+  email: "ghernandez@segurosads.cl"
+  photo: "/assets/images/team/ico-mujer.png"
+
+- name: "Amira Peñafiel Munizaga"
+  title: "Ejecutiva de atención de clientes"
+  area: "Facturación y cobranza"
+  email: "apenafiel@segurosads.cl"
+  photo: "/assets/images/team/ico-mujer.png"
+
+- name: "Mariela Canumán Vidal"
+  title: "Ejecutiva de atención de clientes"
+  area: "Producción y siniestros"
+  email: "mariela.canuman@segurosads.cl"
+  photo: "/assets/images/team/ico-mujer.png"
+
+- name: "Vannessa Ruiz"
+  title: "Ejecutiva de atención de clientes"
+  area: "Caja y cobranza"
+  email: "vruiz@segurosads.cl"
+  photo: "/assets/images/team/ico-mujer.png"

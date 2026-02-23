@@ -1,0 +1,20 @@
+---
+layout: seguros
+title: Seguros de Vida y Ahorro
+description: "Protege a tu familia y construye un ahorro para el futuro. Seguros de vida, invalidez y ahorro al mejor precio."
+permalink: /seguros-vida-ahorro
+insurance_category: vida
+---
+
+{% assign cat_insurances = site.data.insurances | where: "category", "vida" %}
+{% for insurance in cat_insurances %}
+<div class="insurance-card bg-white rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition p-5"
+     data-title="{{ insurance.title | downcase }}">
+  <h3 class="font-semibold text-gray-800 text-base mb-2">{{ insurance.title }}</h3>
+  <p class="text-gray-500 text-sm leading-relaxed mb-4">{{ insurance.subtitle }}</p>
+  <a href="{{ "/contacto" | relative_url }}"
+     class="inline-flex items-center gap-1 text-sm text-blue-600 font-medium hover:text-blue-800 transition">
+    Cotizar <i class="ti ti-arrow-right text-xs"></i>
+  </a>
+</div>
+{% endfor %}

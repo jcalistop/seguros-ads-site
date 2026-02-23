@@ -1,0 +1,136 @@
+# Productos de seguros
+# NOTA: Completar con datos reales de la BD de producción.
+# Estructura base extraída de la migración de InsurancesTableSeeder.csv
+#
+# Campos disponibles: title, seo_title, subtitle, body, image, slug,
+#                     meta_description, category (personas|empresas|comunidades|vida|viajes)
+#
+# --- PERSONAS ---
+
+- title: "Seguro de Automóvil"
+  seo_title: "Seguro de Automóvil | ADS Corredores de Seguros"
+  subtitle: "Protege tu vehículo con la mejor cobertura del mercado"
+  body: "Cobertura completa para tu automóvil frente a robo, accidentes y daños a terceros. Cotiza con las mejores compañías del mercado."
+  slug: "seguro-de-automovil"
+  meta_description: "Seguro de automóvil con amplia cobertura. Cotiza gratis con ADS Corredores."
+  category: "personas"
+
+- title: "Seguro de Hogar"
+  seo_title: "Seguro de Hogar | ADS Corredores de Seguros"
+  subtitle: "Protege tu vivienda y todo lo que hay en ella"
+  body: "Asegura tu hogar contra incendio, robo y catástrofes naturales. Atención personalizada y los mejores precios."
+  slug: "seguro-de-hogar"
+  meta_description: "Seguro de hogar con cobertura total. Cotiza gratis con ADS Corredores."
+  category: "personas"
+
+- title: "Seguro Complementario de Salud"
+  seo_title: "Seguro Complementario de Salud | ADS Corredores"
+  subtitle: "Aliviana tus gastos en salud para cotizantes FONASA e ISAPRE"
+  body: "Reduce tus copagos médicos y accede a prestaciones de salud con mejor cobertura. Disponible para FONASA e ISAPRE."
+  slug: "seguro-complementario-de-salud"
+  meta_description: "Seguro complementario de salud para FONASA e ISAPRE. Cotiza con ADS Corredores."
+  category: "personas"
+
+- title: "Seguro de Vida"
+  seo_title: "Seguro de Vida | ADS Corredores de Seguros"
+  subtitle: "Protege el futuro de tu familia"
+  body: "Asegura el bienestar de tu familia en caso de fallecimiento o invalidez. Cobertura a medida con las mejores compañías."
+  slug: "seguro-de-vida"
+  meta_description: "Seguro de vida con amplia cobertura. Cotiza gratis con ADS Corredores."
+  category: "personas"
+
+- title: "Seguro de Accidentes Personales"
+  seo_title: "Seguro de Accidentes Personales | ADS Corredores"
+  subtitle: "Cobertura ante imprevistos y accidentes"
+  body: "Protección en caso de accidentes que generen incapacidad o muerte. Ideal para complementar tu cobertura de salud."
+  slug: "seguro-de-accidentes-personales"
+  meta_description: "Seguro de accidentes personales. Cotiza con ADS Corredores de Seguros."
+  category: "personas"
+
+# --- EMPRESAS ---
+
+- title: "Seguro de Responsabilidad Civil"
+  seo_title: "Seguro de Responsabilidad Civil | ADS Corredores"
+  subtitle: "Protege tu empresa de demandas y daños a terceros"
+  body: "Cobertura ante reclamos de terceros por daños materiales o personales ocasionados por tu empresa o trabajadores."
+  slug: "seguro-de-responsabilidad-civil"
+  meta_description: "Seguro de responsabilidad civil para empresas. Cotiza con ADS Corredores."
+  category: "empresas"
+
+- title: "Seguro de Incendio Comercial"
+  seo_title: "Seguro de Incendio Comercial | ADS Corredores"
+  subtitle: "Protege las instalaciones de tu negocio"
+  body: "Cobertura para tu local comercial, bodega o edificio de oficinas frente a incendio, explosión y riesgos adicionales."
+  slug: "seguro-de-incendio-comercial"
+  meta_description: "Seguro de incendio comercial para empresas. Cotiza con ADS Corredores."
+  category: "empresas"
+
+- title: "Seguro de Accidentes del Trabajo"
+  seo_title: "Seguro de Accidentes del Trabajo | ADS Corredores"
+  subtitle: "Protege a tus trabajadores en el lugar de trabajo"
+  body: "Complementa la cobertura legal ante accidentes laborales. Protege a tu equipo y reduce la exposición legal de tu empresa."
+  slug: "seguro-de-accidentes-del-trabajo"
+  meta_description: "Seguro de accidentes del trabajo para empresas. Cotiza con ADS Corredores."
+  category: "empresas"
+
+- title: "Seguro de Transporte de Mercancías"
+  seo_title: "Seguro de Transporte | ADS Corredores de Seguros"
+  subtitle: "Protege tu carga en tránsito"
+  body: "Cobertura para tu mercancía durante el transporte nacional e internacional, contra robo, daño y pérdida total."
+  slug: "seguro-de-transporte"
+  meta_description: "Seguro de transporte de mercancías. Cotiza con ADS Corredores."
+  category: "empresas"
+
+# --- COMUNIDADES ---
+
+- title: "Seguro de Condominio"
+  seo_title: "Seguro de Condominio | ADS Corredores de Seguros"
+  subtitle: "Protege los bienes comunes de tu comunidad"
+  body: "Cobertura para bienes comunes, responsabilidad civil de la administración y áreas comunes del condominio o edificio."
+  slug: "seguro-de-condominio"
+  meta_description: "Seguro de condominio y comunidades. Cotiza con ADS Corredores."
+  category: "comunidades"
+
+- title: "Seguro de Responsabilidad Civil de Administración"
+  seo_title: "Seguro RC Administración | ADS Corredores"
+  subtitle: "Protege a la administración del condominio"
+  body: "Cobertura para el administrador de la comunidad frente a errores u omisiones en el ejercicio de sus funciones."
+  slug: "seguro-rc-administracion"
+  meta_description: "Seguro de responsabilidad civil para administradores de condominios."
+  category: "comunidades"
+
+# --- VIDA ---
+
+- title: "Seguro de Vida con Ahorro"
+  seo_title: "Seguro de Vida con Ahorro | ADS Corredores"
+  subtitle: "Protege a tu familia y construye un ahorro"
+  body: "Combina protección de vida con un componente de ahorro a largo plazo. Ideal para asegurar el futuro de tu familia."
+  slug: "seguro-de-vida-con-ahorro"
+  meta_description: "Seguro de vida con ahorro. Cotiza con ADS Corredores de Seguros."
+  category: "vida"
+
+- title: "Seguro de Invalidez y Sobrevivencia"
+  seo_title: "Seguro de Invalidez y Sobrevivencia | ADS Corredores"
+  subtitle: "Cobertura frente a imprevistos de salud graves"
+  body: "Protégete ante una situación de invalidez total o parcial. Complementa tu previsión y asegura ingresos para tu familia."
+  slug: "seguro-de-invalidez"
+  meta_description: "Seguro de invalidez y sobrevivencia. Cotiza con ADS Corredores."
+  category: "vida"
+
+# --- VIAJES ---
+
+- title: "Seguro de Asistencia en Viaje"
+  seo_title: "Seguro de Viaje | ADS Corredores de Seguros"
+  subtitle: "Viaja tranquilo con cobertura médica internacional"
+  body: "Cobertura médica de emergencia, repatriación, pérdida de equipaje y cancelación de viaje. Para destinos nacionales e internacionales."
+  slug: "seguro-de-asistencia-en-viaje"
+  meta_description: "Seguro de asistencia en viaje. Cotiza con ADS Corredores."
+  category: "viajes"
+
+- title: "Seguro de Cancelación de Viaje"
+  seo_title: "Seguro de Cancelación de Viaje | ADS Corredores"
+  subtitle: "Recupera tu inversión si debes cancelar tu viaje"
+  body: "Cobertura para recuperar el costo de tu viaje en caso de cancelación por enfermedad, accidente u otras causas justificadas."
+  slug: "seguro-de-cancelacion-viaje"
+  meta_description: "Seguro de cancelación de viaje. Cotiza con ADS Corredores de Seguros."
+  category: "viajes"
