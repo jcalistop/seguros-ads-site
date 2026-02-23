@@ -239,7 +239,7 @@ permalink: /
           <div>
             <h3 class="font-semibold text-gray-800 mb-2">Contáctanos por cualquiera de nuestros canales</h3>
             <div class="flex flex-wrap gap-2">
-              <a href="{{ site.data.social.whatsapp.url }}" target="_blank" rel="noopener"
+              <a href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}" target="_blank" rel="noopener"
                  class="flex items-center gap-1 bg-green-500 hover:bg-green-600 text-white text-sm px-3 py-1.5 rounded-lg transition">
                 <i class="ti ti-brand-whatsapp"></i> WhatsApp
               </a>
@@ -268,10 +268,10 @@ permalink: /
                    onerror="this.outerHTML='<span class=\'text-xs font-medium text-gray-500 border border-gray-300 px-2 py-1 rounded\'>' + '{{ logo | upcase }}' + '</span>'">
               {% endfor %}
             </div>
-            <a href="{{ "/pagar" | relative_url }}"
+            <!-- <a href="{{ "/pagar" | relative_url }}"
                class="mt-3 inline-block text-blue-600 hover:text-blue-800 text-sm font-medium transition">
-              Ver compañías →
-            </a>
+              Ver compañías → 
+            </a>-->
           </div>
         </div>
 
@@ -319,10 +319,19 @@ permalink: /
 
       {% for cat in site.data.insurance_categories %}
       <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition flex flex-col">
-        <img src="{{ cat.image | relative_url }}"
-             alt="{{ cat.name }}"
-             class="w-full h-40 object-cover"
-             onerror="this.style.display='none'">
+        {% assign base = cat.image | split: '/' | last | remove: '.jpg' | remove: '.jpeg' | remove: '.png' %}
+        <picture>
+          <source type="image/webp"
+                  srcset="{{ '/assets/images/generated/' | append: base | append: '-1200x448.webp' | relative_url }} 1200w, {{ '/assets/images/generated/' | append: base | append: '-800x320.webp' | relative_url }} 800w"
+                  sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw">
+          <source type="image/jpeg"
+                  srcset="{{ '/assets/images/generated/' | append: base | append: '-1200x448.jpg' | relative_url }} 1200w, {{ '/assets/images/generated/' | append: base | append: '-800x320.jpg' | relative_url }} 800w"
+                  sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw">
+          <img src="{{ cat.image | relative_url }}"
+               alt="{{ cat.name }}"
+               class="w-full h-56 object-cover"
+               onerror="this.style.display='none'">
+        </picture>
         <div class="p-5 flex-1 flex flex-col">
           <h3 class="text-lg font-bold text-blue-700 mb-2">{{ cat.name }}</h3>
           <p class="text-gray-600 text-sm flex-1 mb-4">{{ cat.description }}</p>

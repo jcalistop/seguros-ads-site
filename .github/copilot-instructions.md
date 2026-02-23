@@ -2,7 +2,7 @@
 
 ## Proyecto
 
-Sitio estático Jekyll migrado desde Laravel/Tabler.io. Se publica en GitHub Pages con dominio personalizado `segurosads.cl`. Sin build steps: Tailwind CSS vía CDN. Fuente original: `jcalistop/site.segurosads`.
+Sitio estático Jekyll migrado desde Laravel/Tabler.io. Se publica en GitHub Pages con dominio personalizado `segurosads.cl`. Sin build steps: Tailwind CSS vía CDN. Fuente original: repositorio de plantilla Jekyll.
 
 ## Comandos esenciales
 
@@ -35,7 +35,7 @@ Todos los datos de la BD de producción están en YAML:
 - `_data/insurance_categories.yml` — 5 categorías (campos: `id`, `name`, `slug`, `icon`, `route`, `image`)
 - `_data/insurances.yml` — Productos placeholder; **reemplazar con datos reales de BD** (campos: `title`, `slug`, `category`, `subtitle`, `body`)
 - `_data/team.yml` — Equipo (6 miembros)
-- `_data/social.yml` — WhatsApp `56972177609`, Instagram `ads_corredores`, Facebook `adscorredores`
+- `_data/social.yml` — Canales de contacto (WhatsApp, Instagram, Facebook). Mantener los datos de contacto centralizados aquí y evitar exponer números o datos personales en archivos públicos de documentación.
 
 ## Convenciones de rutas
 
@@ -73,7 +73,7 @@ El include vive en `_includes/hero.html` y usa `include.img`, `include.title`, `
 
 ## Formulario de contacto
 
-`contacto.html` usa [Web3Forms](https://web3forms.com). El `access_key` está como placeholder `TU_ACCESS_KEY_AQUI` — hay que reemplazarlo con la clave real del email `jcalisto@segurosads.cl`.
+`contacto.html` usa [Web3Forms](https://web3forms.com). El `access_key` está como placeholder `TU_ACCESS_KEY_AQUI` — reemplace con la clave asociada al canal administrativo de la empresa (ver `_data/social.yml`).
 
 ## Plugins activos
 

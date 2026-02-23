@@ -4,18 +4,13 @@ description: >-
   Más de 40 años protegiendo a personas y empresas.
   Todos tus seguros por un solo canal. Cotiza, compra y paga en línea.
 author: ADS Corredores de Seguros
-email: jcalisto@segurosads.cl
 url: "https://segurosads.cl"
 baseurl: ""
 lang: es
 timezone: America/Santiago
 encoding: utf-8
 
-# Contacto y redes sociales
-phone: "+56 9 7217 7609"
-whatsapp: "56972177609"
-instagram: "ads_corredores"
-facebook: "adscorredores"
+# Contacto y redes sociales (centralizados en `_data/social.yml`)
 address: "Punta Arenas, Chile"
 
 # Build settings

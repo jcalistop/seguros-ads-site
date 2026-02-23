@@ -134,8 +134,7 @@
         "logo": "https://segurosads.cl/assets/images/logo.svg",
         "image": "https://segurosads.cl/assets/images/logo.svg",
         "description": "{{ site.description | strip_newlines }}",
-        "telephone": "+56972177609",
-        "email": "jcalisto@segurosads.cl",
+        "telephone": "+{{ site.data.social.whatsapp.number }}",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Punta Arenas",
@@ -160,7 +159,7 @@
         "sameAs": [
           "https://www.instagram.com/ads_corredores",
           "https://www.facebook.com/adscorredores",
-          "https://wa.me/56972177609"
+          "{{ site.data.social.whatsapp.url }}"
         ],
         "priceRange": "$$",
         "openingHoursSpecification": {
@@ -249,7 +248,7 @@
 
           <!-- WhatsApp Desktop -->
           <a
-            href="{{ site.data.social.whatsapp.url }}"
+            href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}"
             target="_blank"
             rel="noopener"
             class="hidden lg:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-3 py-2 rounded transition"
@@ -342,7 +341,7 @@
         </a>
         <div class="pt-3 border-t border-blue-800">
           <a
-            href="{{ site.data.social.whatsapp.url }}"
+            href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}"
             target="_blank"
             rel="noopener"
             class="flex items-center gap-2 px-3 py-2 rounded bg-green-500 hover:bg-green-600 transition text-sm"

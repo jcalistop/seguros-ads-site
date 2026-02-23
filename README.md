@@ -1,253 +1,43 @@
-# Jekyll Scaffolding - Plantilla Profesional con SEO
+# ADS Corredores de Seguros — Sitio corporativo
 
-Plantilla profesional para generar sitios web con Jekyll, completamente optimizada para SEO.
+Este repositorio contiene el código fuente del sitio web corporativo de ADS Corredores de Seguros. El propósito del proyecto es ofrecer una presencia online clara y comercial que permita a clientes conocer servicios, cotizar y contactarse fácilmente.
 
-## 🚀 Características
+## Resumen comercial
 
-- ✅ Estructura completa de Jekyll con layouts y includes
-- ✅ Optimización SEO con jekyll-seo-tag
-- ✅ Sitemap automático con jekyll-sitemap
-- ✅ Feed RSS con jekyll-feed
-- ✅ Estilos SASS con compresión
-- ✅ Diseño responsive y moderno
-- ✅ Post de ejemplo incluido
+- **Objetivo**: Presentar la oferta de seguros (personas, empresas, viajes, comunidades y vida), generar leads y facilitar pagos y contacto.
+- **Audiencia**: Clientes particulares y empresas que buscan soluciones de seguros integradas.
+- **Valor**: Navegación clara, acceso a cotizaciones y contacto por canales digitales gestionados desde el sitio.
 
-## 📁 Estructura del Proyecto
+## Qué incluye este repositorio
 
-```
-jekyll-scaffolding/
-├── _config.yml              # Configuración principal del sitio
-├── Gemfile                  # Dependencias de Ruby
-├── .gitignore              # Archivos a ignorar en Git
-├── index.md                # Página de inicio
-│
-├── _layouts/               # Plantillas de diseño
-│   ├── default.html        # Layout base
-│   └── post.html           # Layout para posts
-│
-├── _includes/              # Componentes reutilizables
-│   ├── head.html           # Meta tags y SEO
-│   ├── header.html         # Cabecera del sitio
-│   └── footer.html         # Pie de página
-│
-├── _posts/                 # Publicaciones del blog
-│   └── 2026-02-12-bienvenido-a-jekyll.md
-│
-├── _sass/                  # Estilos SASS
-│   └── main.scss           # Estilos principales
-│
-└── assets/                 # Recursos estáticos
-    ├── css/
-    │   └── styles.scss     # Archivo SCSS principal
-    ├── js/                 # JavaScript
-    └── images/             # Imágenes
-```
+- Arquitectura de layouts e includes para mantener consistencia visual.
+- Contenido dinámico gestionado en YAML bajo `_data/` (aseguradoras, categorías, productos, equipo y canales de contacto).
+- Integraciones básicas SEO y sitemap para visibilidad en buscadores.
 
-## 🛠️ Instalación
+## Cómo editar contenido (para equipo no técnico)
 
-### Prerrequisitos
+- Textos y listas de productos se mantienen en archivos bajo `_data/` y páginas estáticas en la raíz del proyecto.
+- Para actualizar canales de contacto (teléfono, WhatsApp, redes), editar `_data/social.yml`.
+- Las páginas comerciales (por ejemplo, categorías de seguros) se actualizan directamente en los archivos HTML/Markdown del sitio.
 
-- Ruby 2.5 o superior
-- RubyGems
-- GCC y Make
+## Flujo de publicación
 
-### Pasos de Instalación
+- El sitio está pensado para desplegarse en GitHub Pages mediante acciones CI/CD o mediante cualquier servicio de hosting de sitios estáticos.
+- Los cambios en la rama principal pueden publicarse automáticamente si la configuración de Actions está habilitada.
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/jcalistop/jekyll-scaffolding.git
-   cd jekyll-scaffolding
-   ```
+## Buenas prácticas para el contenido
 
-2. **Instalar Bundler**
-   ```bash
-   gem install bundler
-   ```
+- Evitar exponer datos personales o sensibles dentro de archivos de documentación pública. Mantener contactos oficiales centralizados en `_data/social.yml`.
+- Mantener logos y recursos gráficos en `assets/images/` usando nombres en minúsculas.
 
-3. **Instalar dependencias**
-   ```bash
-   bundle install
-   ```
+## Soporte y contacto
 
-4. **Construir el sitio**
-   ```bash
-   bundle exec jekyll build
-   ```
+Para contacto comercial o soporte operativo, utilice la página `contacto.html` del sitio o los canales configurados en `_data/social.yml`.
 
-5. **Servir el sitio localmente**
-   ```bash
-   bundle exec jekyll serve
-   ```
+## Contribuciones
 
-   Visita `http://localhost:4000` en tu navegador.
-
-## ⚙️ Configuración
-
-### _config.yml
-
-Personaliza tu sitio editando `_config.yml`:
-
-```yaml
-title: Mi Sitio Jekyll              # Título del sitio
-description: Un sitio profesional   # Descripción para SEO
-author: Tu Nombre                   # Tu nombre
-email: tu@email.com                 # Tu email
-url: "https://tudominio.com"       # URL de tu sitio
-baseurl: ""                        # Subdirectorio si aplica
-```
-
-### Plugins Incluidos
-
-- **jekyll-seo-tag**: Genera automáticamente meta tags para SEO
-- **jekyll-sitemap**: Crea sitemap.xml para motores de búsqueda
-- **jekyll-feed**: Genera feed RSS/Atom
-
-## 📝 Crear Contenido
-
-### Crear un Nuevo Post
-
-1. Crea un archivo en `_posts/` con el formato:
-   ```
-   YYYY-MM-DD-titulo-del-post.md
-   ```
-
-2. Agrega el Front Matter al inicio del archivo:
-   ```yaml
-   ---
-   layout: post
-   title: "Título de tu Post"
-   date: 2026-02-12 20:00:00 -0000
-   author: Tu Nombre
-   tags: [jekyll, tutorial]
-   description: "Descripción para SEO"
-   ---
-   ```
-
-3. Escribe tu contenido en Markdown debajo del Front Matter.
-
-### Ejemplo de Post
-
-```markdown
----
-layout: post
-title: "Mi Primer Post"
-date: 2026-02-12
-tags: [ejemplo, tutorial]
----
-
-# Mi Primer Post
-
-Este es el contenido de mi post en **Markdown**.
-
-## Subtítulo
-
-- Lista item 1
-- Lista item 2
-```
-
-## 🎨 Personalización de Estilos
-
-Los estilos están en `_sass/main.scss`. Puedes personalizar:
-
-- Colores
-- Tipografía
-- Espaciados
-- Diseño responsive
-
-Ejemplo para cambiar el color principal:
-
-```scss
-.site-header {
-  background-color: #tu-color; // Cambia este valor
-}
-```
-
-## 🌐 Deployment
-
-### GitHub Pages
-
-1. En tu repositorio de GitHub, ve a Settings > Pages
-2. Selecciona la rama `main` como fuente
-3. Tu sitio estará disponible en `https://tu-usuario.github.io/repositorio/`
-
-### Netlify
-
-1. Conecta tu repositorio a Netlify
-2. Configura el comando de build: `jekyll build`
-3. Directorio de publicación: `_site`
-
-### Otros Servicios
-
-El sitio puede desplegarse en cualquier servicio que soporte sitios estáticos:
-- Vercel
-- Cloudflare Pages
-- AWS S3
-- Surge.sh
-
-## 📄 Archivos Clave
-
-### _includes/head.html
-
-Contiene todas las etiquetas SEO:
-- Meta tags viewport
-- Jekyll SEO tag
-- Enlace al CSS
-- Favicon
-- Feed RSS
-- URL canónica
-
-### _layouts/default.html
-
-Layout base que incluye:
-- Head (con SEO)
-- Header
-- Contenido principal
-- Footer
-
-### _layouts/post.html
-
-Layout para posts con:
-- Título y metadata
-- Contenido del post
-- Tags
-
-## 🔍 SEO Features
-
-El sitio incluye optimización automática para:
-
-- ✅ Meta tags Open Graph (Facebook)
-- ✅ Twitter Cards
-- ✅ Schema.org JSON-LD
-- ✅ Canonical URLs
-- ✅ Sitemap XML
-- ✅ Feed RSS/Atom
-- ✅ Compresión de CSS
-
-## 📚 Recursos Adicionales
-
-- [Documentación de Jekyll](https://jekyllrb.com/docs/)
-- [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag)
-- [Markdown Guide](https://www.markdownguide.org/)
-- [Liquid Template Language](https://shopify.github.io/liquid/)
-
-## 🤝 Contribuir
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT.
-
-## ✨ Autor
-
-**jcalistop**
+Si desea contribuir (texto, correcciones o activos gráficos), abra un Pull Request con una descripción del cambio y su justificativo comercial.
 
 ---
 
-⭐ Si este proyecto te fue útil, considera darle una estrella en GitHub!
+Esta versión del `README` está enfocada a un público comercial y de producto. Para detalles técnicos de instalación y desarrollo, consulte las guías internas o pida acceso a la documentación de desarrolladores.

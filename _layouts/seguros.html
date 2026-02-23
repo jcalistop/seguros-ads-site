@@ -92,7 +92,7 @@
           <a href="{{ '/pagar' | relative_url }}" class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition"><i class="ti ti-credit-card-filled mr-1"></i>Paga aquí</a>
           <a href="{{ '/contacto' | relative_url }}" class="px-3 py-2 rounded text-sm font-medium hover:bg-blue-700 transition">Contacto</a>
         </nav>
-        <a href="{{ site.data.social.whatsapp.url }}" target="_blank" rel="noopener"
+        <a href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}" target="_blank" rel="noopener"
            class="hidden lg:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-3 py-2 rounded transition">
           <i class="ti ti-brand-whatsapp"></i><span>{{ site.data.social.whatsapp.display }}</span>
         </a>
@@ -132,8 +132,8 @@
   </aside>
 
   <!-- HERO -->
-  <div class="relative w-full flex items-center hero-bg" style="height:260px; background-image:url('{{ "/assets/images/personas.jpg" | relative_url }}');">
-    <div class="absolute inset-0" style="background:rgba(0,0,0,0.55);"></div>
+  <div class="relative w-full h-64 md:h-80 lg:h-96 hero-bg flex items-center" style="background-image:url('{{ "/assets/images/hero-insurance-10.jpg" | relative_url }}');">
+    <div class="absolute inset-0" style="background:rgba(0,0,0,0.3);"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-6 text-white">
       <h1 class="text-3xl md:text-5xl font-bold mb-2 drop-shadow-lg">Busca tu seguro</h1>
       <p class="text-lg md:text-xl drop-shadow">Todos los seguros en un solo lugar.</p>
@@ -167,7 +167,7 @@
           <div class="mt-6 p-4 bg-blue-700 text-white rounded-xl">
             <p class="text-sm font-semibold mb-2">¿No encuentras lo que buscas?</p>
             <p class="text-blue-100 text-xs mb-3">Contáctanos y te asesoramos sin costo.</p>
-            <a href="{{ site.data.social.whatsapp.url }}" target="_blank" rel="noopener"
+            <a href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}" target="_blank" rel="noopener"
                class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-3 py-2 rounded-lg transition">
               <i class="ti ti-brand-whatsapp"></i> WhatsApp
             </a>

@@ -2,14 +2,14 @@
 # Fuente: site/master.blade.php
 
 whatsapp:
-  number: "56972177609"
-  display: "+56 9 7217 7609"
-  url: "https://wa.me/56972177609"
+  number: "56989005359"
+  display: "+56 9 8900 5359"
+  url: "https://wa.me/56989005359"
   icon: "ti ti-brand-whatsapp"
 
 instagram:
-  handle: "@ads_corredores"
-  url: "https://www.instagram.com/ads_corredores"
+  handle: "@ads_corredores_de_seguros"
+  url: "https://www.instagram.com/ads_corredores_de_seguros/"
   icon: "ti ti-brand-instagram"
 
 facebook:
@@ -17,10 +17,6 @@ facebook:
   url: "https://www.facebook.com/adscorredores"
   icon: "ti ti-brand-facebook"
 
-email:
-  address: "jcalisto@segurosads.cl"
-  icon: "ti ti-mail"
-
 phone:
-  display: "+56 9 7217 7609"
+  display: "+56 9 8900 5359"
   icon: "ti ti-phone"

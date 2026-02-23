@@ -51,11 +51,11 @@ subtitle="Te responderemos en menos de 1 hora en horario hábil" %}
           class="space-y-4"
         >
           <!--
-            ⚠️ IMPORTANTE: Reemplaza TU_ACCESS_KEY_AQUI con tu clave real.
+            ⚠️ IMPORTANTE: Reemplaza `TU_ACCESS_KEY_AQUI` con tu clave real.
             1. Ve a https://web3forms.com/
-            2. Ingresa el email: jcalisto@segurosads.cl
-            3. Copia la Access Key que te envían al correo
-            4. Pégala abajo en value="..."
+            2. Asocia la Access Key al correo administrativo configurado en `_data/social.yml`.
+            3. Copia la Access Key que recibas por ese canal.
+            4. Pégala abajo en `value="..."`.
           -->
           <input type="hidden" name="access_key" value="98387f2a-82e6-49a6-aad5-0f6cbdb56349" />
           <input
@@ -274,29 +274,12 @@ subtitle="Te responderemos en menos de 1 hora en horario hábil" %}
             <div>
               <p class="font-semibold text-gray-800">WhatsApp</p>
               <a
-                href="{{ site.data.social.whatsapp.url }}"
+                href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}"
                 target="_blank"
                 rel="noopener"
                 class="text-green-600 hover:text-green-700 font-medium transition"
               >
                 {{ site.data.social.whatsapp.display }}
-              </a>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div
-              class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center"
-            >
-              <i class="ti ti-mail text-blue-600 text-xl"></i>
-            </div>
-            <div>
-              <p class="font-semibold text-gray-800">Correo electrónico</p>
-              <a
-                href="mailto:{{ site.email }}"
-                class="text-blue-600 hover:text-blue-700 transition"
-              >
-                {{ site.email }}
               </a>
             </div>
           </div>

@@ -7,7 +7,7 @@
   route: "personas"
   icon: "ti ti-friends"
   description: "Encuentra protección para ti, tu familia o tu patrimonio. Protege a los que más te importan con nuestra diversidad de seguros al mejor precio."
-  image: "/assets/images/personas.jpg"
+  image: "/assets/images/personas-landscape-more1.jpg"
 
 - id: 2
   name: "Seguros para empresas"
@@ -15,7 +15,7 @@
   route: "empresas"
   icon: "ti ti-building-store"
   description: "Protege tu inversión y accede a los seguros más convenientes del mercado. Protegemos a ti y a tus trabajadores en el giro de tu negocio."
-  image: "/assets/images/empresas.jpg"
+  image: "/assets/images/empresas-builders-plans3.jpg"
 
 - id: 3
   name: "Seguros para comunidades"
@@ -23,7 +23,7 @@
   route: "comunidades"
   icon: "ti ti-building-community"
   description: "Aseguramos los espacios comunes y protegemos la administración de la comunidad por medio de los seguros de responsabilidad civil."
-  image: "/assets/images/condominios.jpg"
+  image: "/assets/images/condo-condo-exterior3.jpg"
 
 - id: 4
   name: "Seguros de vida y ahorro"
@@ -31,7 +31,7 @@
   route: "vida"
   icon: "ti ti-heart-dollar"
   description: "Protege a tu familia con un seguro de vida y construye un ahorro para el futuro. Cobertura completa para lo más importante."
-  image: "/assets/images/personas.jpg"
+  image: "/assets/images/seguros-vida.jpg"
 
 - id: 5
   name: "Seguros de viajes y asistencia"
@@ -39,4 +39,4 @@
   route: "viajes"
   icon: "ti ti-plane-departure"
   description: "Viaja tranquilo con la mejor cobertura de asistencia en viajes. Protección médica y de equipaje para que disfrutes sin preocupaciones."
-  image: "/assets/images/personas.jpg"
+  image: "/assets/images/seguros-viaje.jpg"
