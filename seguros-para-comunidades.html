@@ -12,9 +12,16 @@ insurance_category: comunidades
      data-title="{{ insurance.title | downcase }}">
   <h3 class="font-semibold text-gray-800 text-base mb-2">{{ insurance.title }}</h3>
   <p class="text-gray-500 text-sm leading-relaxed mb-4">{{ insurance.subtitle }}</p>
-  <a href="{{ "/contacto" | relative_url }}"
-     class="inline-flex items-center gap-1 text-sm text-blue-600 font-medium hover:text-blue-800 transition">
-    Cotizar <i class="ti ti-arrow-right text-xs"></i>
-  </a>
+  <div class="flex flex-wrap gap-2">
+    <a href="{{ "/contacto" | relative_url }}"
+       class="inline-flex items-center gap-1 text-sm bg-blue-600 hover:bg-blue-700 text-white font-medium px-3 py-1.5 rounded-lg transition">
+      <i class="ti ti-file-invoice text-xs"></i> Cotizar gratis
+    </a>
+    <a href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa el ' | append: insurance.title | url_encode }}"
+       target="_blank" rel="noopener"
+       class="inline-flex items-center gap-1 text-sm bg-green-500 hover:bg-green-600 text-white font-medium px-3 py-1.5 rounded-lg transition">
+      <i class="ti ti-brand-whatsapp text-xs"></i> WhatsApp
+    </a>
+  </div>
 </div>
 {% endfor %}

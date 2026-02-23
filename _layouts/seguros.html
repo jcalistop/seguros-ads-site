@@ -6,6 +6,30 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   {% seo %}
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/logo.svg' | relative_url }}" />
+
+  <!-- Google Analytics GA4 — Reemplazar G-XXXXXXXXXX con ID real -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+  <!-- Meta Pixel — Reemplazar XXXXXXXXXXXXXXX con Pixel ID real -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXXXXX');
+    fbq('track', 'PageView');
+  </script>
+  -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -176,62 +200,38 @@
             <a href="{{ "/contacto" | relative_url }}" class="mt-4 inline-block text-blue-600 hover:underline">¿Necesitas algo específico? Contáctanos</a>
           </div>
 
+          <!-- CTA Banner de Conversión -->
+          <div class="mt-10 bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl p-8 text-white">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 class="text-xl font-bold mb-2">¿No sabes cuál elegir? Te ayudamos gratis</h3>
+                <p class="text-blue-200 text-sm">Nuestros ejecutivos comparan precios en +21 compañías para encontrar la mejor opción para ti.</p>
+                <div class="flex items-center gap-4 mt-3">
+                  <span class="flex items-center gap-1 text-blue-200 text-xs"><i class="ti ti-clock"></i> Respuesta en &lt;1 hora</span>
+                  <span class="flex items-center gap-1 text-blue-200 text-xs"><i class="ti ti-coin"></i> Sin costo</span>
+                  <span class="flex items-center gap-1 text-blue-200 text-xs"><i class="ti ti-shield-check"></i> Sin compromiso</span>
+                </div>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+                <a href="{{ '/contacto' | relative_url }}"
+                   class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-lg hover:bg-blue-50 transition text-sm">
+                  <i class="ti ti-file-invoice"></i> Cotizar ahora
+                </a>
+                <a href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}" 
+                   target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-lg transition text-sm">
+                  <i class="ti ti-brand-whatsapp"></i> WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER igual que default.html -->
-  <footer class="text-gray-300 mt-auto" style="background-color:#111827;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="col-span-2 md:col-span-1">
-          <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="ADS" class="h-10 mb-3" onerror="this.style.display='none'">
-          <p class="text-sm">Protegemos a nuestros clientes con la mejor tecnología al precio más conveniente.</p>
-        </div>
-        <div>
-          <h5 class="text-white font-semibold mb-3">Menú</h5>
-          <ul class="space-y-2 text-sm">
-            <li><a href="{{ '/' | relative_url }}" class="hover:text-white transition">Inicio</a></li>
-            <li><a href="{{ '/nosotros' | relative_url }}" class="hover:text-white transition">Nosotros</a></li>
-            <li><a href="{{ '/pagar' | relative_url }}" class="hover:text-white transition">Paga aquí</a></li>
-            <li><a href="{{ '/contacto' | relative_url }}" class="hover:text-white transition">Contacto</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="text-white font-semibold mb-3">Seguros</h5>
-          <ul class="space-y-2 text-sm">
-            {% for cat in site.data.insurance_categories %}
-            <li><a href="{{ cat.slug | prepend: '/' | relative_url }}" class="hover:text-white transition">{{ cat.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div>
-          <h5 class="text-white font-semibold mb-3">Contacto</h5>
-          <ul class="space-y-3 text-sm">
-            <li>
-              <a href="{{ site.data.social.whatsapp.url }}" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-green-400 transition">
-                <i class="ti ti-brand-whatsapp"></i>{{ site.data.social.whatsapp.display }}
-              </a>
-            </li>
-            <li>
-              <a href="{{ site.data.social.instagram.url }}" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-pink-400 transition">
-                <i class="ti ti-brand-instagram"></i>{{ site.data.social.instagram.handle }}
-              </a>
-            </li>
-            <li>
-              <a href="{{ site.data.social.facebook.url }}" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-blue-400 transition">
-                <i class="ti ti-brand-facebook"></i>/{{ site.data.social.facebook.handle }}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-700 mt-8 pt-5 text-center text-sm text-gray-500">
-        Derechos reservados ® ADS Corredores de Seguros &nbsp;|&nbsp; Hecho en 🇨🇱 con ❤️
-      </div>
-    </div>
-  </footer>
+  {% include footer.html %}
 
   <!-- SCRIPTS -->
   <script>
@@ -290,6 +290,18 @@
       countEl.textContent = allCards.length + ' seguros disponibles';
     }
   </script>
+
+  <!-- ============================================================ WHATSAPP FLOTANTE -->
+  <a href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}" 
+     target="_blank" rel="noopener"
+     aria-label="Contáctanos por WhatsApp"
+     class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 group"
+     style="box-shadow: 0 4px 15px rgba(37,211,102,0.5);">
+    <i class="ti ti-brand-whatsapp text-3xl"></i>
+    <span class="absolute right-full mr-3 bg-white text-gray-800 text-sm font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+      ¡Escríbenos! <span class="text-green-600">Respuesta rápida</span>
+    </span>
+  </a>
 
 </body>
 </html>

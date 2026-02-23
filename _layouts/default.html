@@ -15,6 +15,46 @@
       href="{{ '/assets/images/logo.svg' | relative_url }}"
     />
 
+    <!-- ============================================================ GOOGLE ANALYTICS GA4 -->
+    <!-- INSTRUCCIONES:
+         1. Ve a https://analytics.google.com/ y crea una propiedad GA4
+         2. Reemplaza G-XXXXXXXXXX con tu ID de medición real
+         3. Elimina los comentarios HTML que rodean las etiquetas script
+    -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <!-- ============================================================ META PIXEL (Facebook/Instagram) -->
+    <!-- INSTRUCCIONES:
+         1. Ve a https://business.facebook.com/events_manager
+         2. Crea un pixel y copia el ID numérico
+         3. Reemplaza XXXXXXXXXXXXXXX con tu Pixel ID real
+         4. Elimina los comentarios HTML que rodean el script
+    -->
+    <!--
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'XXXXXXXXXXXXXXX');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"/></noscript>
+    -->
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -83,6 +123,54 @@
     {% if page.extra_css %}
     <link rel="stylesheet" href="{{ page.extra_css | relative_url }}" />
     {% endif %}
+
+    <!-- ============================================================ SCHEMA STRUCTURED DATA -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "InsuranceAgency",
+        "name": "ADS Corredores de Seguros",
+        "url": "https://segurosads.cl",
+        "logo": "https://segurosads.cl/assets/images/logo.svg",
+        "image": "https://segurosads.cl/assets/images/logo.svg",
+        "description": "{{ site.description | strip_newlines }}",
+        "telephone": "+56972177609",
+        "email": "jcalisto@segurosads.cl",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Punta Arenas",
+          "addressRegion": "Magallanes",
+          "addressCountry": "CL"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -53.1638,
+          "longitude": -70.9171
+        },
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": -53.1638,
+            "longitude": -70.9171
+          },
+          "geoRadius": "500000"
+        },
+        "foundingDate": "1979",
+        "sameAs": [
+          "https://www.instagram.com/ads_corredores",
+          "https://www.facebook.com/adscorredores",
+          "https://wa.me/56972177609"
+        ],
+        "priceRange": "$$",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      }
+    </script>
   </head>
   <body class="font-sans text-gray-800 bg-white flex flex-col min-h-screen">
     <!-- ============================================================ NAVBAR -->
@@ -269,202 +357,7 @@
     <!-- ============================================================ CONTENIDO PRINCIPAL -->
     <main class="flex-1">{{ content }}</main>
 
-    <!-- ============================================================ FOOTER -->
-    <footer class="text-gray-300 mt-auto" style="background-color: #111827">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-          <!-- Columna 1: Logo y descripción -->
-          <div class="col-span-2 lg:col-span-1">
-            <img
-              src="{{ '/assets/images/logo.svg' | relative_url }}"
-              alt="ADS Corredores de Seguros"
-              class="h-12 mb-3"
-              onerror="this.style.display = 'none'"
-            />
-            <p class="text-sm leading-relaxed mb-4">
-              Protegemos a nuestros clientes de los riesgos en la vida de las
-              personas y las empresas. Usamos la tecnología para entregar el
-              mejor servicio al precio más conveniente del mercado.
-            </p>
-            <img
-              src="{{ '/assets/images/logos/regulados-por-asociados-a.png' | relative_url }}"
-              alt="Regulados por / Asociados a"
-              class="max-h-14 opacity-80"
-              onerror="this.style.display = 'none'"
-            />
-          </div>
-
-          <!-- Columna 2: Menú -->
-          <div>
-            <h5 class="text-white font-semibold mb-3">Menú</h5>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <a
-                  href="{{ '/' | relative_url }}"
-                  class="hover:text-white transition"
-                  >Inicio</a
-                >
-              </li>
-              <li>
-                <a
-                  href="{{ '/nosotros' | relative_url }}"
-                  class="hover:text-white transition"
-                  >Nosotros</a
-                >
-              </li>
-              <li>
-                <a
-                  href="{{ '/seguros-para-personas' | relative_url }}"
-                  class="hover:text-white transition"
-                  >Seguros</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition">Siniestros</a>
-              </li>
-              <li>
-                <a
-                  href="{{ '/pagar' | relative_url }}"
-                  class="hover:text-white transition"
-                  >Paga aquí</a
-                >
-              </li>
-              <li>
-                <a
-                  href="{{ '/contacto' | relative_url }}"
-                  class="hover:text-white transition"
-                  >Contacto</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Columna 3: Seguros -->
-          <div>
-            <h5 class="text-white font-semibold mb-3">Seguros</h5>
-            <ul class="space-y-2 text-sm">
-              {% for cat in site.data.insurance_categories %}
-              <li>
-                <a
-                  href="{{ cat.slug | prepend: '/' | relative_url }}"
-                  class="hover:text-white transition"
-                  >{{ cat.name }}</a
-                >
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-
-          <!-- Columna 4: Plataformas -->
-          <div>
-            <h5 class="text-white font-semibold mb-3">Plataformas</h5>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <a
-                  href="/admin"
-                  class="hover:text-white transition"
-                  target="_blank"
-                  rel="noopener"
-                  >Frontoffice</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://backoffice.segurosads.cl/admin"
-                  class="hover:text-white transition"
-                  target="_blank"
-                  rel="noopener"
-                  >Backoffice</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition">Academia ADS</a>
-              </li>
-              <li><a href="#" class="hover:text-white transition">CRM</a></li>
-              <li>
-                <a href="#" class="hover:text-white transition">Matrix ANS</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Columna 5: Blog -->
-          <div>
-            <h5 class="text-white font-semibold mb-3">Blog</h5>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >¿Qué es una corredora?</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >¿Tiene costo la asesoría?</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >¿Por qué un seguro?</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >¿Quién regula los seguros?</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-white transition"
-                  >Atento a las estafas!</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Redes sociales + copyright -->
-        <div
-          class="border-t border-gray-700 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
-        >
-          <div class="flex items-center gap-5">
-            <a
-              href="{{ site.data.social.whatsapp.url }}"
-              target="_blank"
-              rel="noopener"
-              aria-label="WhatsApp"
-              class="text-gray-400 hover:text-green-400 transition text-2xl"
-            >
-              <i class="ti ti-brand-whatsapp"></i>
-            </a>
-            <a
-              href="{{ site.data.social.instagram.url }}"
-              target="_blank"
-              rel="noopener"
-              aria-label="Instagram"
-              class="text-gray-400 hover:text-pink-400 transition text-2xl"
-            >
-              <i class="ti ti-brand-instagram"></i>
-            </a>
-            <a
-              href="{{ site.data.social.facebook.url }}"
-              target="_blank"
-              rel="noopener"
-              aria-label="Facebook"
-              class="text-gray-400 hover:text-blue-400 transition text-2xl"
-            >
-              <i class="ti ti-brand-facebook"></i>
-            </a>
-          </div>
-          <div class="text-sm text-center text-gray-500">
-            <p>
-              Derechos reservados ® ADS Corredores de Seguros &nbsp;|&nbsp;
-              Hecho en 🇨🇱 con ❤️
-            </p>
-            <p class="mt-1">
-              © {{ 'now' | date: "%Y" }} Todos los derechos reservados.
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    {% include footer.html %}
 
     <!-- ============================================================ SCRIPTS -->
     <script>
@@ -495,5 +388,22 @@
     {% if page.extra_js %}
     <script src="{{ page.extra_js | relative_url }}"></script>
     {% endif %}
+
+    <!-- ============================================================ WHATSAPP FLOTANTE -->
+    <a
+      href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}"
+      target="_blank"
+      rel="noopener"
+      aria-label="Contáctanos por WhatsApp"
+      class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 group"
+      style="box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5)"
+    >
+      <i class="ti ti-brand-whatsapp text-3xl"></i>
+      <span
+        class="absolute right-full mr-3 bg-white text-gray-800 text-sm font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+      >
+        ¡Escríbenos! <span class="text-green-600">Respuesta rápida</span>
+      </span>
+    </a>
   </body>
 </html>

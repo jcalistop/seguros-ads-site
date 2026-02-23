@@ -6,7 +6,30 @@ permalink: /contacto
 ---
 
 {% include hero.html img="/assets/images/contacto.jpg" title="Contáctanos"
-subtitle="Te responderemos a la velocidad del rayo" %}
+subtitle="Te responderemos en menos de 1 hora en horario hábil" %}
+
+<!-- ===================== BARRA DE CONFIANZA -->
+<section class="py-4 bg-blue-50 border-b border-blue-100">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      class="flex flex-wrap justify-center gap-6 text-sm text-blue-700 font-medium"
+    >
+      <span class="flex items-center gap-2"
+        ><i class="ti ti-clock text-lg"></i> Respuesta en menos de 1 hora</span
+      >
+      <span class="flex items-center gap-2"
+        ><i class="ti ti-coin text-lg"></i> Asesoría sin costo</span
+      >
+      <span class="flex items-center gap-2"
+        ><i class="ti ti-shield-check text-lg"></i> +40 años de
+        experiencia</span
+      >
+      <span class="flex items-center gap-2"
+        ><i class="ti ti-lock text-lg"></i> Tus datos están seguros</span
+      >
+    </div>
+  </div>
+</section>
 
 <!-- ===================== FORMULARIO + DATOS -->
 <section class="py-14 bg-white">
@@ -14,9 +37,12 @@ subtitle="Te responderemos a la velocidad del rayo" %}
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <!-- Formulario Web3Forms -->
       <div>
-        <h2 class="text-2xl font-bold text-blue-700 mb-6">
-          Envíanos un mensaje
+        <h2 class="text-2xl font-bold text-blue-700 mb-2">
+          Cotiza gratis tu seguro
         </h2>
+        <p class="text-gray-500 mb-6">
+          Completa el formulario y un ejecutivo te contactará personalmente.
+        </p>
 
         <form
           id="contact-form"
@@ -24,17 +50,28 @@ subtitle="Te responderemos a la velocidad del rayo" %}
           method="POST"
           class="space-y-4"
         >
-          <!-- Web3Forms access key — reemplazar con la tuya en web3forms.com -->
-          <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI" />
+          <!--
+            ⚠️ IMPORTANTE: Reemplaza TU_ACCESS_KEY_AQUI con tu clave real.
+            1. Ve a https://web3forms.com/
+            2. Ingresa el email: jcalisto@segurosads.cl
+            3. Copia la Access Key que te envían al correo
+            4. Pégala abajo en value="..."
+          -->
+          <input type="hidden" name="access_key" value="98387f2a-82e6-49a6-aad5-0f6cbdb56349" />
           <input
             type="hidden"
             name="subject"
-            value="Nuevo mensaje desde segurosads.cl"
+            value="🔔 Nueva cotización desde segurosads.cl"
           />
           <input
             type="hidden"
             name="from_name"
             value="ADS Corredores Website"
+          />
+          <input
+            type="hidden"
+            name="redirect"
+            value="https://segurosads.cl/contacto"
           />
           <input
             type="checkbox"
@@ -43,20 +80,37 @@ subtitle="Te responderemos a la velocidad del rayo" %}
             style="display: none"
           />
 
-          <div>
-            <label
-              for="name"
-              class="block text-sm font-medium text-gray-700 mb-1"
-              >Nombre completo *</label
-            >
-            <input
-              id="name"
-              type="text"
-              name="name"
-              required
-              placeholder="Tu nombre"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-            />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Nombre completo *</label
+              >
+              <input
+                id="name"
+                type="text"
+                name="name"
+                required
+                placeholder="Tu nombre"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+              />
+            </div>
+            <div>
+              <label
+                for="phone"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Teléfono *</label
+              >
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                required
+                placeholder="+56 9 XXXX XXXX"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+              />
+            </div>
           </div>
 
           <div>
@@ -75,44 +129,101 @@ subtitle="Te responderemos a la velocidad del rayo" %}
             />
           </div>
 
+          <!-- SELECTOR DE SEGURO — califica el lead -->
           <div>
             <label
-              for="phone"
+              for="insurance_type"
               class="block text-sm font-medium text-gray-700 mb-1"
-              >Teléfono</label
+              >¿Qué seguro te interesa? *</label
             >
-            <input
-              id="phone"
-              type="tel"
-              name="phone"
-              placeholder="+56 9 XXXX XXXX"
-              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-            />
+            <select
+              id="insurance_type"
+              name="insurance_type"
+              required
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              <optgroup label="Seguros para Personas">
+                <option value="Seguro de Automóvil">Seguro de Automóvil</option>
+                <option value="Seguro de Hogar">Seguro de Hogar</option>
+                <option value="Seguro Complementario de Salud">
+                  Seguro Complementario de Salud
+                </option>
+                <option value="Seguro de Vida">Seguro de Vida</option>
+                <option value="Seguro de Accidentes Personales">
+                  Seguro de Accidentes Personales
+                </option>
+              </optgroup>
+              <optgroup label="Seguros para Empresas">
+                <option value="Seguro de Responsabilidad Civil">
+                  Seguro de Responsabilidad Civil
+                </option>
+                <option value="Seguro de Incendio Comercial">
+                  Seguro de Incendio Comercial
+                </option>
+                <option value="Seguro de Accidentes del Trabajo">
+                  Seguro de Accidentes del Trabajo
+                </option>
+                <option value="Seguro de Transporte">
+                  Seguro de Transporte de Mercancías
+                </option>
+                <option value="Póliza de Garantía">
+                  Póliza de Garantía / Fiel Cumplimiento
+                </option>
+              </optgroup>
+              <optgroup label="Seguros para Comunidades">
+                <option value="Seguro de Condominio">
+                  Seguro de Condominio
+                </option>
+                <option value="Seguro RC Administración">
+                  Seguro RC de Administración
+                </option>
+              </optgroup>
+              <optgroup label="Vida y Ahorro">
+                <option value="Seguro de Vida con Ahorro">
+                  Seguro de Vida con Ahorro
+                </option>
+                <option value="Seguro de Invalidez">
+                  Seguro de Invalidez y Sobrevivencia
+                </option>
+              </optgroup>
+              <optgroup label="Viajes y Asistencia">
+                <option value="Seguro de Viaje">
+                  Seguro de Asistencia en Viaje
+                </option>
+                <option value="Seguro Cancelación Viaje">
+                  Seguro de Cancelación de Viaje
+                </option>
+              </optgroup>
+              <option value="Otro">Otro / No estoy seguro</option>
+            </select>
           </div>
 
           <div>
             <label
               for="message"
               class="block text-sm font-medium text-gray-700 mb-1"
-              >Mensaje *</label
+              >Cuéntanos más (opcional)</label
             >
             <textarea
               id="message"
               name="message"
-              rows="5"
-              required
-              placeholder="¿En qué podemos ayudarte?"
+              rows="3"
+              placeholder="Ej: Necesito asegurar mi auto año 2022 marca Toyota..."
               class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition resize-none"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition flex items-center justify-center gap-2"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition flex items-center justify-center gap-2 text-lg"
           >
             <i class="ti ti-send"></i>
-            Enviar mensaje
+            Solicitar cotización gratis
           </button>
+          <p class="text-xs text-gray-400 text-center mt-1">
+            Sin compromiso. Te contactaremos en menos de 1 hora.
+          </p>
         </form>
 
         <!-- Mensajes de respuesta -->

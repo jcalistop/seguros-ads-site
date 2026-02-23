@@ -1,0 +1,229 @@
+<!-- ============================================================ FOOTER UNIFICADO -->
+<footer class="text-gray-300 mt-auto" style="background-color: #111827">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      <!-- Columna 1: Logo y descripción -->
+      <div class="col-span-2 lg:col-span-1">
+        <img
+          src="{{ '/assets/images/logo.svg' | relative_url }}"
+          alt="ADS Corredores de Seguros"
+          class="h-12 mb-3"
+          onerror="this.style.display = 'none'"
+        />
+        <p class="text-sm leading-relaxed mb-4">
+          Protegemos a nuestros clientes de los riesgos en la vida de las
+          personas y las empresas. Usamos la tecnología para entregar el mejor
+          servicio al precio más conveniente del mercado.
+        </p>
+        <img
+          src="{{ '/assets/images/logos/regulados-por-asociados-a.png' | relative_url }}"
+          alt="Regulados por / Asociados a"
+          class="max-h-14 opacity-80"
+          onerror="this.style.display = 'none'"
+        />
+      </div>
+
+      <!-- Columna 2: Menú -->
+      <div>
+        <h5 class="text-white font-semibold mb-3">Menú</h5>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href="{{ '/' | relative_url }}"
+              class="hover:text-white transition"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/nosotros' | relative_url }}"
+              class="hover:text-white transition"
+              >Nosotros</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/seguros-para-personas' | relative_url }}"
+              class="hover:text-white transition"
+              >Seguros</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/contacto' | relative_url }}"
+              class="hover:text-white transition"
+              >Siniestros</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/pagar' | relative_url }}"
+              class="hover:text-white transition"
+              >Paga aquí</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/contacto' | relative_url }}"
+              class="hover:text-white transition"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Seguros -->
+      <div>
+        <h5 class="text-white font-semibold mb-3">Seguros</h5>
+        <ul class="space-y-2 text-sm">
+          {% for cat in site.data.insurance_categories %}
+          <li>
+            <a
+              href="{{ cat.slug | prepend: '/' | relative_url }}"
+              class="hover:text-white transition"
+              >{{ cat.name }}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Columna 4: Contacto rápido -->
+      <div>
+        <h5 class="text-white font-semibold mb-3">Contáctanos</h5>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a
+              href="{{ site.data.social.whatsapp.url }}"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-2 hover:text-green-400 transition"
+            >
+              <i class="ti ti-brand-whatsapp"></i> {{
+              site.data.social.whatsapp.display }}
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:{{ site.email }}"
+              class="flex items-center gap-2 hover:text-white transition"
+            >
+              <i class="ti ti-mail"></i> {{ site.email }}
+            </a>
+          </li>
+          <li>
+            <a
+              href="{{ site.data.social.instagram.url }}"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-2 hover:text-pink-400 transition"
+            >
+              <i class="ti ti-brand-instagram"></i> {{
+              site.data.social.instagram.handle }}
+            </a>
+          </li>
+          <li>
+            <a
+              href="{{ site.data.social.facebook.url }}"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-2 hover:text-blue-400 transition"
+            >
+              <i class="ti ti-brand-facebook"></i> /{{
+              site.data.social.facebook.handle }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 5: Preguntas frecuentes -->
+      <div>
+        <h5 class="text-white font-semibold mb-3">Preguntas frecuentes</h5>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href="{{ '/#faq-accordion' | relative_url }}"
+              class="hover:text-white transition"
+              >¿Qué es una corredora?</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/#faq-accordion' | relative_url }}"
+              class="hover:text-white transition"
+              >¿Tiene costo la asesoría?</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/#faq-accordion' | relative_url }}"
+              class="hover:text-white transition"
+              >¿Por qué contratar un seguro?</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/#faq-accordion' | relative_url }}"
+              class="hover:text-white transition"
+              >¿Quién regula los seguros?</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ '/#faq-accordion' | relative_url }}"
+              class="hover:text-white transition"
+              >¿Cómo cotizo con ADS?</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Redes sociales + copyright -->
+    <div
+      class="border-t border-gray-700 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+    >
+      <div class="flex items-center gap-5">
+        <a
+          href="{{ site.data.social.whatsapp.url }}"
+          target="_blank"
+          rel="noopener"
+          aria-label="WhatsApp"
+          class="text-gray-400 hover:text-green-400 transition text-2xl"
+        >
+          <i class="ti ti-brand-whatsapp"></i>
+        </a>
+        <a
+          href="{{ site.data.social.instagram.url }}"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+          class="text-gray-400 hover:text-pink-400 transition text-2xl"
+        >
+          <i class="ti ti-brand-instagram"></i>
+        </a>
+        <a
+          href="{{ site.data.social.facebook.url }}"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+          class="text-gray-400 hover:text-blue-400 transition text-2xl"
+        >
+          <i class="ti ti-brand-facebook"></i>
+        </a>
+      </div>
+      <div class="text-sm text-center text-gray-500">
+        <p>
+          Derechos reservados ® ADS Corredores de Seguros &nbsp;|&nbsp; Hecho
+          con ❤️ en 🇨🇱 por
+          <a href="https://www.fenixaustral.cl" target="_blank" rel="noopener"
+            >Fénix Austral Ltda.</a
+          >
+        </p>
+        <p class="mt-1">
+          © {{ 'now' | date: "%Y" }} Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

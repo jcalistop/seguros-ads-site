@@ -21,11 +21,12 @@ permalink: /
     <div class="absolute inset-0 bg-black/30"></div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-8 text-white text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Simple y fácil</h1>
-      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Todos los seguros por un solo canal</p>
-      <a href="{{ "/seguros-para-personas" | relative_url }}"
-         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition text-lg">
-        Encuentra el tuyo aquí →
+      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Todos los seguros por un solo canal. Asesoría 100% gratis.</p>
+      <a href="{{ "/contacto" | relative_url }}"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition text-lg shadow-lg">
+        Cotiza gratis ahora →
       </a>
+      <p class="mt-3 text-sm text-white/80"><i class="ti ti-clock"></i> Respuesta en menos de 1 hora</p>
     </div>
   </div>
 
@@ -34,10 +35,10 @@ permalink: /
     <div class="absolute inset-0 bg-black/30"></div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-8 text-white text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Pólizas de garantía</h1>
-      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Cotíza fiel cumplimiento y seriedad de la oferta</p>
-      <a href="{{ "/seguros-para-empresas" | relative_url }}"
-         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition text-lg">
-        Obtiénelo aquí →
+      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Fiel cumplimiento y seriedad de la oferta. Cotizamos en +21 compañías.</p>
+      <a href="{{ "/contacto" | relative_url }}"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition text-lg shadow-lg">
+        Solicitar póliza →
       </a>
     </div>
   </div>
@@ -47,10 +48,10 @@ permalink: /
     <div class="absolute inset-0 bg-black/30"></div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-8 text-white text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Seguro complementario</h1>
-      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Aliviana tus gastos en salud, para cotizantes FONASA e ISAPRE.</p>
-      <a href="{{ "/seguros-para-personas" | relative_url }}"
-         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition text-lg">
-        Cotízalo aquí →
+      <p class="text-xl md:text-2xl mb-6 max-w-lg mx-auto drop-shadow">Aliviana tus gastos en salud. Para FONASA e ISAPRE. Sin costo de asesoría.</p>
+      <a href="{{ "/contacto" | relative_url }}"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition text-lg shadow-lg">
+        Cotiza tu complementario →
       </a>
     </div>
   </div>
@@ -72,6 +73,30 @@ permalink: /
     <button onclick="goToSlide(0)" class="carousel-dot w-3 h-3 rounded-full bg-white opacity-80" aria-label="Slide 1"></button>
     <button onclick="goToSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-white opacity-40" aria-label="Slide 2"></button>
     <button onclick="goToSlide(2)" class="carousel-dot w-3 h-3 rounded-full bg-white opacity-40" aria-label="Slide 3"></button>
+  </div>
+</section>
+
+<!-- ========================================== BARRA DE CIFRAS DE CONFIANZA -->
+<section class="py-12 bg-gradient-to-r from-blue-800 to-blue-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-4xl md:text-5xl font-bold mb-1">+40</p>
+        <p class="text-blue-200 text-sm">Años de experiencia</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-bold mb-1">21</p>
+        <p class="text-blue-200 text-sm">Compañías asociadas</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-bold mb-1">+1.000</p>
+        <p class="text-blue-200 text-sm">Clientes protegidos</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-bold mb-1">100%</p>
+        <p class="text-blue-200 text-sm">Asesoría sin costo</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -182,6 +207,24 @@ permalink: /
   </div>
 </section>
 
+<!-- ========================================== LOGOS DE CONFIANZA -->
+<section class="py-10 bg-white border-t border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-gray-500 text-sm font-medium uppercase tracking-wider mb-8">Cotizamos en las mejores compañías del mercado</p>
+    <div class="flex flex-wrap justify-center items-center gap-8">
+      {% for company in site.data.companies %}
+      {% if company.logo %}
+      <img src="{{ company.logo | relative_url }}" 
+           alt="{{ company.short }}" 
+           class="h-10 object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition duration-300"
+           onerror="this.style.display='none'"
+           title="{{ company.name }}">
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <!-- ========================================== CÓMO TRABAJAMOS -->
 <section class="py-14 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -272,10 +315,9 @@ permalink: /
 <section class="py-14 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">Navega por nuestros seguros:</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      {% assign main_cats = site.data.insurance_categories | slice: 0, 3 %}
-      {% for cat in main_cats %}
+      {% for cat in site.data.insurance_categories %}
       <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition flex flex-col">
         <img src="{{ cat.image | relative_url }}"
              alt="{{ cat.name }}"
@@ -296,6 +338,134 @@ permalink: /
   </div>
 </section>
 
+<!-- ========================================== PREGUNTAS FRECUENTES (FAQ) -->
+<section class="py-14 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-4">Preguntas frecuentes</h2>
+    <p class="text-center text-gray-500 mb-10">Todo lo que necesitas saber antes de contratar un seguro</p>
+
+    <div class="space-y-4" id="faq-accordion">
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition">
+          <span class="font-semibold text-gray-800">¿Qué es una corredora de seguros?</span>
+          <i class="ti ti-chevron-down text-gray-400 transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4">
+          <p class="text-gray-600 text-sm leading-relaxed">Una corredora de seguros es un intermediario regulado por la <strong>Comisión para el Mercado Financiero (CMF)</strong> que asesora a personas y empresas en la elección del seguro más conveniente. A diferencia de un agente de seguros, la corredora trabaja para el cliente, no para la compañía, y cotiza en múltiples aseguradoras para encontrar la mejor relación precio-cobertura.</p>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition">
+          <span class="font-semibold text-gray-800">¿La asesoría tiene algún costo?</span>
+          <i class="ti ti-chevron-down text-gray-400 transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4">
+          <p class="text-gray-600 text-sm leading-relaxed"><strong>No, la asesoría es 100% gratuita.</strong> Nuestros ingresos provienen de una comisión que paga la compañía de seguros, no el cliente. Esto significa que puedes consultar, cotizar y comparar sin costo alguno y sin compromiso.</p>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition">
+          <span class="font-semibold text-gray-800">¿Por qué contratar un seguro a través de una corredora?</span>
+          <i class="ti ti-chevron-down text-gray-400 transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4">
+          <p class="text-gray-600 text-sm leading-relaxed">Al contratar a través de una corredora obtienes: <strong>comparación de precios</strong> en múltiples compañías, <strong>asesoría personalizada</strong> según tu perfil de riesgo, <strong>gestión total de siniestros</strong> (nosotros peleamos por ti), y <strong>seguimiento de vencimientos</strong> para que nunca quedes sin cobertura. El precio del seguro es el mismo que contratando directo con la compañía.</p>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition">
+          <span class="font-semibold text-gray-800">¿Quién regula a las corredoras de seguros en Chile?</span>
+          <i class="ti ti-chevron-down text-gray-400 transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4">
+          <p class="text-gray-600 text-sm leading-relaxed">Las corredoras de seguros en Chile están reguladas por la <strong>Comisión para el Mercado Financiero (CMF)</strong>. ADS Corredores de Seguros cumple con todos los requisitos legales, incluyendo póliza de responsabilidad civil profesional y registro vigente en la CMF.</p>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition">
+          <span class="font-semibold text-gray-800">¿Cómo cotizo un seguro con ADS?</span>
+          <i class="ti ti-chevron-down text-gray-400 transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4">
+          <p class="text-gray-600 text-sm leading-relaxed">Es muy simple: <strong>1)</strong> Contáctanos por WhatsApp, teléfono o formulario web. <strong>2)</strong> Cuéntanos qué necesitas proteger. <strong>3)</strong> Cotizamos en las mejores compañías del mercado. <strong>4)</strong> Te presentamos las opciones y te asesoramos. <strong>5)</strong> Eliges y pagas en línea. ¡Así de fácil!</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA después de FAQ -->
+    <div class="mt-10 text-center">
+      <p class="text-gray-500 mb-4">¿Tienes más preguntas? Nuestros ejecutivos están listos para ayudarte.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="{{ "/contacto" | relative_url }}"
+           class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition">
+          <i class="ti ti-file-invoice"></i> Solicitar cotización gratis
+        </a>
+        <a href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, tengo una consulta sobre seguros' | url_encode }}" 
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition">
+          <i class="ti ti-brand-whatsapp"></i> Preguntar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Schema JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es una corredora de seguros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una corredora de seguros es un intermediario regulado por la Comisión para el Mercado Financiero (CMF) que asesora a personas y empresas en la elección del seguro más conveniente. A diferencia de un agente, trabaja para el cliente y cotiza en múltiples aseguradoras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La asesoría tiene algún costo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, la asesoría es 100% gratuita. Los ingresos de la corredora provienen de una comisión que paga la compañía de seguros, no el cliente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué contratar un seguro a través de una corredora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al contratar a través de una corredora obtienes comparación de precios en múltiples compañías, asesoría personalizada, gestión total de siniestros y seguimiento de vencimientos. El precio es el mismo que contratando directo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quién regula a las corredoras de seguros en Chile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las corredoras de seguros en Chile están reguladas por la Comisión para el Mercado Financiero (CMF). ADS Corredores cumple con todos los requisitos legales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo cotizo un seguro con ADS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contáctanos por WhatsApp, teléfono o formulario web. Cuéntanos qué necesitas proteger. Cotizamos en las mejores compañías, te asesoramos y pagas en línea."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- ========================================== CAROUSEL JS -->
 <script>
   let currentSlide = 0;
@@ -315,4 +485,21 @@ permalink: /
 
   // Auto-avance cada 5 segundos
   setInterval(() => changeSlide(1), 5000);
+
+  // FAQ Accordion
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('i');
+    const isOpen = !answer.classList.contains('hidden');
+    
+    // Cerrar todos
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+    document.querySelectorAll('#faq-accordion button i').forEach(i => i.style.transform = '');
+    
+    // Abrir el clickeado (si estaba cerrado)
+    if (!isOpen) {
+      answer.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+    }
+  }
 </script>
