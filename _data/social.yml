@@ -2,9 +2,9 @@
 # Fuente: site/master.blade.php
 
 whatsapp:
-  number: "56989005359"
-  display: "+56 9 8900 5359"
-  url: "https://wa.me/56989005359"
+  number: "56935306752"
+  display: "+56 9 3530 6752"
+  url: "https://wa.me/56935306752"
   icon: "ti ti-brand-whatsapp"
 
 instagram:
