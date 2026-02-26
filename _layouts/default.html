@@ -388,21 +388,52 @@
     <script src="{{ page.extra_js | relative_url }}"></script>
     {% endif %}
 
-    <!-- ============================================================ WHATSAPP FLOTANTE -->
-    <a
-      href="{{ site.data.social.whatsapp.url }}?text={{ 'Hola, me interesa cotizar un seguro' | url_encode }}"
-      target="_blank"
-      rel="noopener"
-      aria-label="Contáctanos por WhatsApp"
-      class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 group"
-      style="box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5)"
-    >
-      <i class="ti ti-brand-whatsapp text-3xl"></i>
-      <span
-        class="absolute right-full mr-3 bg-white text-gray-800 text-sm font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-      >
-        ¡Escríbenos! <span class="text-green-600">Respuesta rápida</span>
-      </span>
-    </a>
+    <!-- ============================================================ CHAT (tawk.to) -->
+    <!--
+      Reemplazo del botón flotante de WhatsApp por el widget de tawk.to.
+
+      Dónde pegar el script: pega el código de embed de tawk.to (proporcionado
+      por tawk.to tras crear la propiedad) dentro del bloque de ejemplo
+      comentado a continuación o añadiendo el valor en `_data/tawk.yml`.
+
+      Ejemplo (comentar/descomentar según prefieras):
+
+      1) Crear `_data/tawk.yml` con:
+         property: "PROPID/default"
+
+      2) El snippet real se insertará automáticamente si existe
+         `site.data.tawk.property`.
+
+      Ejemplo de script (DESCOMENTAR y reemplazar PROPID/default):
+
+      <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+        var s1=document.createElement("script"), s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/PROPID/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+      </script>
+
+    -->
+
+    {% if site.data.tawk and site.data.tawk.property %}
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/{{ site.data.tawk.property }}";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    {% endif %}
   </body>
 </html>
