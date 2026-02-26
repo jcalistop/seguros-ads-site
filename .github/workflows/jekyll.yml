@@ -37,7 +37,7 @@ jobs:
         # setup-ruby lee BUNDLED WITH de Gemfile.lock e instala bundler automáticamente
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
         with:
-          ruby-version: "3.1"
+          ruby-version: "3.3"
           bundler-cache: true
           cache-version: 0
       - name: Setup Pages
